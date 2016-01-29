@@ -1,0 +1,72 @@
+body {
+	font-family: "Times New Roman", Times, Georgia, serif;
+	font-size: 11pt;
+	color: #626f7f;
+	background-color: #fff;
+}
+
+header {
+}
+
+a {
+	text-decoration: none;
+	color: #626f7f;
+}
+
+a:hover, .current {
+	color: #ff0099
+}
+
+
+.headline {
+	font-weight: bold;
+	font-size: 45pt;
+	color: #0bb3d0;
+	margin-left: 10%;
+}
+
+.headline span {
+	color: #b4d433;
+}
+
+.headline:hover{
+	color: #0bb3d0;
+}
+
+.flex-list {
+    margin: 1em;
+    overflow: hidden;
+    margin-left: 10%;
+}
+
+.flex-list ul {  
+	margin-left: -2px;
+	padding: 0;
+}
+
+li, .date{
+	display: inline;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	text-transform: uppercase;
+}
+
+.flex-list li {
+	margin-right: 25px;
+	border-left: 2px solid #b4d433;
+	flex-grow: 1;
+    flex-basis: auto;
+    margin: .25em 0;
+    padding: 0 1em;
+    text-align: center;
+}
+
+.date {
+	font-style: italic;
+}
+
+#content {
+	background-color: #f3f1ed;
+	border-top: solid 4pt #84b8c6;
+	border-bottom: solid 4pt #84b8c6;
+}
