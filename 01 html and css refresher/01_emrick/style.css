@@ -148,7 +148,7 @@ a#readmore:hover {
 
 footer {
 	position: fixed;
-	bottom: 5px;
+	bottom: -1px;
 	z-index: 9;
 	background-color: #fff;
 	height: 40px;
@@ -159,14 +159,14 @@ footer {
 
 a.return {
 	float: left;
-	margin-top: 15px;
+	margin-top: 10px;
 	margin-left: 125px;
 }
 
 #copyright {
 	float: right;
-	margin-top: 15px;
-	margin-right: 237px;
+	margin-top: 10px;
+	margin-right: 319px;
 	font-size: 10pt;
 	color: #aabec4;
 }
@@ -184,7 +184,7 @@ a.return {
 	margin-bottom: 10px;
 }
 
-.article1 {
+.article-main {
 	width: 890px;
 }
 
@@ -207,4 +207,117 @@ figure {
     -webkit-column-fill: auto; /* Chrome, Safari, Opera */
     -moz-column-fill: auto; /* Firefox */
     column-fill: auto;
+}
+
+aside {
+	float: right;
+	top: 100px;
+}
+
+.related-articles, .popular-articles {
+	position: relative;
+	right: 124.5px;
+}
+
+.related-articles {
+	top: -385px;
+}
+
+.popular-articles {
+	top: -380px;
+}
+
+h2 { 
+	font-family: "Times New Roman", Times, Georgia, serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 16pt;
+	color: #0bb3d0;
+	position: relative;
+	left: -26px;
+}
+
+.side-title {
+	font-size: 11pt;
+	font-weight: bold;
+	color: #626f7f;
+}
+
+.side-title span{
+	font-size: 7pt;
+	font-style: italic;
+	text-transform: uppercase;
+	color: #626f7f;
+	font-family: Verdana, Geneva, sans-serif;
+	line-height: 2em;
+}
+
+
+.previous {
+	position: relative;
+	bottom: -360px;
+	left: 125px;
+	background-image: url("images/previous.jpg");
+	text-indent: -9999px;
+	display: inline-block;
+	height: 12px;
+	width: 106px;
+	background-position: 0px 0px;
+}
+
+.previous:hover {
+	left: 125px;
+	background-image: url("images/previous.jpg");
+	text-indent: -9999px;
+	display: inline-block;
+	height: 12px;
+	width: 106px;
+	background-position: -106px 0px;
+}
+
+.next {
+	position: relative;
+	bottom: -279px;
+	left: 925px;
+	background-image: url("images/next.jpg");
+	text-indent: -9999px;
+	display: inline-block;
+	height: 12px;
+	width: 83.5px;
+	background-position: 0px 0px;
+}
+
+.next:hover  {
+	background-image: url("images/next.jpg");
+	text-indent: -9999px;
+	display: inline-block;
+	height: 12px;
+	width: 83.5px;
+	background-position: -83.5px 0px;
+}
+
+h3 { 
+	font-family: "Times New Roman", Times, Georgia, serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 16pt;
+	color: #0bb3d0;
+	position: relative;
+}
+
+.previous-title, .next-title {
+	position: relative;
+	bottom: -360px;
+}
+
+.previous-title {
+	position: relative;
+	left: 125px;
+	bottom: -340px;
+}
+
+.next-title {
+	position: relative;
+	left: 820px;
+	bottom: -260px;
 }
