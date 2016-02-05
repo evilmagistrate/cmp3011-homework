@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700italic);
+
 body {
 	font-family: "Times New Roman", Times, Georgia, serif;
 	font-size: 11pt;
@@ -7,6 +9,7 @@ body {
 
 header {
 	margin-top: 32px;
+	margin-bottom: 6px;
 }
 
 a {
@@ -18,12 +21,13 @@ a:hover, .current {
 	color: #ff0099;
 }
 
-
 .headline {
+	font-family: 'Droid Serif', serif;
 	font-weight: bold;
+	font-style: italic;
 	font-size: 45pt;
 	color: #0bb3d0;
-	margin: 32px 0px 0px 125px;
+	margin: 32px 0px 0px 8.6%;
 }
 
 .headline span {
@@ -35,9 +39,10 @@ a:hover, .current {
 }
 
 .flex-list {
+    position: relative;
     margin: 1em;
     overflow: hidden;
-    margin-left: 120px;
+    margin-left: 9.8%;
     margin-top: -10px;
 }
 
@@ -46,7 +51,7 @@ a:hover, .current {
 	padding: 0;
 }
 
-li, .date {
+.flex-list li, .date, .article-date {
 	display: inline;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 10pt;
@@ -66,12 +71,12 @@ li, .date {
 .CMOS {
 	float: right;
 	margin-top: 12px;
-	margin-right: 236px;
+	margin-right: 10%;
 }
 
 #social-fb, #social-twitter {
 	float: right;
-	margin-top: 6px;
+	margin-top: 16px;
 }
 
 a.social {
@@ -86,7 +91,7 @@ a#social-fb {
 	background-position: 0px 0px;
 	clear: right;
 	margin-left: -10px;
-	margin-right: 236px;
+	margin-right: 10%;
 }
 
 a#social-twitter {
@@ -95,19 +100,23 @@ a#social-twitter {
 }
 
 
-.date {
+.date, .article-date {
 	font-style: italic;
 }
 
 #content-wrapper {
 	background-color: #f3f1ed;
+	background-size: 110%;
 	border-top: solid 4pt #84b8c6;
-	height: 135%;
+	height: 101%;
+	position: absolute;
+	left: -1px;
+	right: -1px;
 }
 
 #content {
-	margin-right: 236px;
-	margin-left: 120px;
+	margin-right: 9%;
+	margin-left: 8.6%;
 }
 
 article {
@@ -116,9 +125,8 @@ article {
 	display: inline-block;
 	padding: 10px 0px 40px 0px;
 	vertical-align: top;
-	margin: 20px 7px 20px 7px;
+	margin: 20px 10px 20px 10px;
 }
-
 
 .copy {
 	background-color: #fff;
@@ -129,11 +137,15 @@ article {
 a#readmore {
 	background-image: url("images/read-more-off.jpg");
 	text-indent: -9999px;
-	display: inline-block;
+	position: relative;
 	height: 9px;
 	width: 75px;
 	background-position: 0px 0px;
 	float: right;
+}
+
+#readmore {
+	position: absolute;
 }
 
 a#readmore:hover {
@@ -146,6 +158,14 @@ a#readmore:hover {
 	float: right;
 }
 
+p.excerpt {
+	height: 120px;
+}
+
+.article1 p.excerpt {
+	height: 95px;
+}
+
 footer {
 	position: fixed;
 	bottom: -1px;
@@ -154,7 +174,7 @@ footer {
 	height: 40px;
 	width: 105%;
 	border-top: solid 4pt #84b8c6;
-	margin-left: -5px;
+	left: -5px;
 }
 
 a.return {
@@ -172,7 +192,7 @@ a.return {
 }
 
 .title, .article-title {
-	font-size: 26pt;
+	font-size: 20pt;
 	color: #0bb3d0;
 	font-weight: bold;
 	line-height: 1em;
@@ -181,37 +201,41 @@ a.return {
 .article-title {
 	font-size: 30pt;
 	width: 888px;
-	margin-bottom: 10px;
-}
-
-.article-main {
-	width: 890px;
+	margin-bottom: 35px;
 }
 
 .article-date {
-	margin-bottom: 32px;
+	position: absolute;
+	top: 80px;
+}
+
+.article-main {
+	width: 101%;
 }
 
 figure {
 	float: right;
-	margin: 6px 0px 20px 10px;
+	margin: 36px 21%;
 }
 
-.columns {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-     -webkit-column-gap: 30px; /* Chrome, Safari, Opera */
-    -moz-column-gap: 30px; /* Firefox */
-    column-gap: 30px;
-    -webkit-column-fill: auto; /* Chrome, Safari, Opera */
-    -moz-column-fill: auto; /* Firefox */
-    column-fill: auto;
+.column1, .column2 {
+	float: left;
+	width: 436px;
+}
+
+.column1 {
+	position: relative;
+	top: -260px;
+}
+
+.column2 {
+	margin: 5px 24px 0px 40px;
 }
 
 aside {
-	float: right;
-	top: 100px;
+	position: absolute;
+	top: 400px;
+	right: -10px;
 }
 
 .related-articles, .popular-articles {
@@ -249,39 +273,103 @@ h2 {
 	text-transform: uppercase;
 	color: #626f7f;
 	font-family: Verdana, Geneva, sans-serif;
-	line-height: 2em;
+	line-height: 1.5em;
 }
 
-
-.previous {
+.article-nav {
 	position: relative;
-	bottom: -360px;
-	left: 125px;
+	padding: 0;
+	bottom: -200px;
+}
+/*
+ul.article-nav {
+	width: 100%;
+	position: relative;
+	padding: 0;
+	bottom: -480px;
+	height: 50px;
+}*/
+
+li.previous {
+	position: absolute;
+	left: 112px;
+	display: inline-block;
 	background-image: url("images/previous.jpg");
 	text-indent: -9999px;
+	height: 12px;
+	width: 106px;
+	background-position: 0px 0px;
+	z-index: 2;
+}
+
+li.previous:hover {
+	position: absolute;
+	left: 112px;
 	display: inline-block;
+	background-image: url("images/previous.jpg");
+	text-indent: -9999px;
+	height: 12px;
+	width: 106px;
+	background-position: -106px 0px;
+	z-index: 2;
+}
+
+li.next {
+	position: absolute;
+	right: 25%;
+	display: inline-block;
+	background-image: url("images/next.jpg");
+	text-indent: -9999px;
+	height: 12px;
+	width: 83.5px;
+	background-position: 0px 0px;
+	z-index: 2;
+}
+
+li.next:hover {
+	position: absolute;
+	right: 25%;
+	display: inline-block;
+	background-image: url("images/next.jpg");
+	text-indent: -9999px;
+	height: 12px;
+	width: 83.5px;
+	background-position: -83.5px 0px;
+	z-index: 2;
+}
+
+.previous-title {
+	position: absolute;
+	bottom: -258px;
+	left: 129px;
+}
+
+.next-title {
+	position: absolute;
+	bottom: -258px;
+	right: 25.8%;
+}
+
+/*.previous {
+	margin-left: 8.8%;
+	background-image: url("images/previous.jpg");
+	text-indent: -9999px;
 	height: 12px;
 	width: 106px;
 	background-position: 0px 0px;
 }
 
 .previous:hover {
-	left: 125px;
 	background-image: url("images/previous.jpg");
 	text-indent: -9999px;
-	display: inline-block;
-	height: 12px;
-	width: 106px;
 	background-position: -106px 0px;
 }
 
 .next {
-	position: relative;
-	bottom: -279px;
-	left: 925px;
+	position: absolute;
+	right: 200px;
 	background-image: url("images/next.jpg");
 	text-indent: -9999px;
-	display: inline-block;
 	height: 12px;
 	width: 83.5px;
 	background-position: 0px 0px;
@@ -290,34 +378,30 @@ h2 {
 .next:hover  {
 	background-image: url("images/next.jpg");
 	text-indent: -9999px;
-	display: inline-block;
 	height: 12px;
 	width: 83.5px;
 	background-position: -83.5px 0px;
-}
+}*/
 
 h3 { 
 	font-family: "Times New Roman", Times, Georgia, serif;
-	font-style: italic;
 	font-weight: bold;
 	font-size: 16pt;
 	color: #0bb3d0;
-	position: relative;
 }
 
-.previous-title, .next-title {
-	position: relative;
-	bottom: -360px;
+/*.previous-title, .next-title {
+	position: absolute;
 }
 
 .previous-title {
-	position: relative;
+	position: absolute;
 	left: 125px;
-	bottom: -340px;
+	bottom: 550px;
 }
 
 .next-title {
-	position: relative;
+	position: absolute;
 	left: 820px;
 	bottom: -260px;
-}
+}*/
