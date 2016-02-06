@@ -130,7 +130,7 @@ article {
 
 .copy {
 	background-color: #fff;
-	padding: 12px 6px 12px 6px;
+	padding: 12px 12px 12px 12px;
 	height: 210px;
 }
 
@@ -340,13 +340,13 @@ li.next:hover {
 
 .previous-title {
 	position: absolute;
-	bottom: -258px;
+	bottom: -238px;
 	left: 129px;
 }
 
 .next-title {
 	position: absolute;
-	bottom: -258px;
+	bottom: -238px;
 	right: 25.8%;
 }
 
@@ -383,7 +383,7 @@ li.next:hover {
 	background-position: -83.5px 0px;
 }*/
 
-h3 { 
+h3>a { 
 	font-family: "Times New Roman", Times, Georgia, serif;
 	font-weight: bold;
 	font-size: 16pt;
