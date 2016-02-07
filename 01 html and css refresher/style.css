@@ -47,7 +47,7 @@ a:hover, .current {
 }
 
 .flex-list ul {  
-	margin-left: -2px;
+	margin-left: -3px;
 	padding: 0;
 }
 
@@ -64,8 +64,31 @@ a:hover, .current {
 	flex-grow: 1;
     flex-basis: auto;
     margin: .25em 0;
-    padding: 0 1em;
+    padding: 2px 6px 2px 6px;
     text-align: center;
+    -webkit-transition: all 1s ease.5;
+	-moz-transition: all 1s ease .5;
+	-o-transition: all 1s ease .5;
+	transition: all 1s ease .5;
+}
+
+.flex-list li:hover {
+	background-color: #b4d433;
+	-webkit-transition: all 1s ease.5;
+	-moz-transition: all 1s ease .5;
+	-o-transition: all 1s ease .5;
+	transition: all 1s ease .5;
+	margin-right: 10px;
+}
+
+/*nav text*/
+
+.flex-list li>a:hover { 
+	color: #fff;
+	-webkit-transition: all ..25s ease;
+	-moz-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
 }
 
 .CMOS {
@@ -265,6 +288,18 @@ h2 {
 	font-size: 11pt;
 	font-weight: bold;
 	color: #626f7f;
+	-webkit-transition: all 1s linear;
+	-moz-transition: all 1s linear;
+	-o-transition: all 1s linear;
+	transition: all 1s linear;
+}
+
+.side-title:hover {
+	color: #ff0099;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	transition: all .3s linear;
 }
 
 .side-title span{
@@ -300,6 +335,10 @@ li.previous {
 	width: 106px;
 	background-position: 0px 0px;
 	z-index: 2;
+	-webkit-transition: all 2s ease.5;
+	-moz-transition: all 2s ease .5;
+	-o-transition: all 2s ease .5;
+	transition: all 2s ease .5;
 }
 
 li.previous:hover {
@@ -312,6 +351,10 @@ li.previous:hover {
 	width: 106px;
 	background-position: -106px 0px;
 	z-index: 2;
+	-webkit-transition: all 0s ease.5;
+	-moz-transition: all 0s ease .5;
+	-o-transition: all 0s ease .5;
+	transition: all 0s ease .5;
 }
 
 li.next {
@@ -324,6 +367,10 @@ li.next {
 	width: 83.5px;
 	background-position: 0px 0px;
 	z-index: 2;
+	-webkit-transition: all 2s ease.5;
+	-moz-transition: all 2s ease .5;
+	-o-transition: all 2s ease .5;
+	transition: all 2s ease .5;
 }
 
 li.next:hover {
@@ -336,6 +383,10 @@ li.next:hover {
 	width: 83.5px;
 	background-position: -83.5px 0px;
 	z-index: 2;
+	-webkit-transition: all 0s ease.5;
+	-moz-transition: all 0s ease .5;
+	-o-transition: all 0s ease .5;
+	transition: all 0s ease .5;
 }
 
 .previous-title {
