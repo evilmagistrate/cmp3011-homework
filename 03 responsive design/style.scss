@@ -1,0 +1,242 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700italic);
+
+//declaration of variables//
+
+$color-text: #626f7f;
+$color-pink: #ff0099;
+$color-blue: #0bb3d0;
+$color-green: #b4d433;
+$color-background: #f3f1ed;
+$color-border: #84b8c6;
+
+$font-headline: 'Droid Serif', Times, serif;
+$font-serif: "Times New Roman", Times, Georgia, serif;
+$font-sans: Verdana, Geneva, sans-serif;
+
+$font-default: 95%;
+
+//the magic's in the mixins//
+
+@mixin transition($property, $time, $type, $delay) {
+  -webkit-transition: $property $time $type $delay;
+  -moz-transition: $property $time $type $delay;
+  -o-transition: $property $time $type $delay;
+  transition: $property $time $type $delay;
+}
+
+@mixin flex-box {
+  display: flex;
+  align-content: center;
+}
+
+@mixin hidden-pipes {
+  position: relative;
+  margin: 1em;
+  overflow: hidden;
+  margin-left: 9.8%;
+  margin-top: -10px;
+}
+
+@mixin uppercase-sans {
+  display: inline;
+  font: {
+    family: Verdana, Geneva, sans-serif;
+    size: 80%; }
+  text-transform: uppercase;
+}
+
+/* the whole enchilada */
+
+body {
+  font: {
+    color: $color-text;
+    family: $font-serif;
+    size: $font-default;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-text;
+
+  &:hover, &:current {
+    color: $color-pink;
+  }
+
+  &.social {
+    height: 43px;
+    background-image: url("images/fb-twitter.gif");
+    text-indent: -9999px;
+    display: inline-block;
+  }
+
+  &#readmore {
+    background-image: url("images/read-more-off.jpg");
+    text-indent: -9999px;
+    position: relative;
+    height: 9px;
+    width: 75px;
+    background-position: 0px 0px;
+
+    &:hover {
+      background-image: url("images/read-more-off.jpg");
+      text-indent: -9999px;
+      display: inline-block;
+      height: 9px;
+      width: 75px;
+      background-position: -77px 0px;
+      float: right;
+    }
+  }
+}
+
+/* header */
+
+.headline {
+  font: {
+    family: $font-headline;
+    weight: bold;
+    style: italic;
+    size: 300%;
+  }
+  color: $color-blue;
+
+  & span {
+    color: $color-green;
+  }
+  &:hover {
+    color: $color-blue;
+  }
+}
+
+.primary-nav {
+  @include hidden-pipes;
+
+  & ul {
+    margin-left: -3px;
+    padding: 0;
+  }
+
+  & li {
+    @include uppercase-sans;
+    margin-right: 25px;
+    border-left: 2px solid #b4d433;
+    flex-grow: 1;
+    flex-basis: auto;
+    margin: .25em 0;
+    padding: 2px 6px 2px 6px;
+    text-align: center;
+    @include transition (all, 1s, ease, .3s);
+
+    &:hover {
+      background-color: #b4d433;
+      @include transition (all, 1s, ease, 0s);
+      margin-right: 10px;
+    }
+
+    &>a:hover {
+      color: #fff;
+      @include transition (all, .25s, ease, 0)
+    }
+  }
+}
+
+#social-external-nav {
+  @include flex-box;
+
+  &.CMOS {
+  }
+
+  &#social-fb, #social-twitter {
+  }
+
+  &a#social-fb {
+    width: 45px;
+    background-position: 0px 0px;
+    clear: right;
+    margin-left: -10px;
+    margin-right: 10%;
+  }
+
+  &a#social-twitter {
+    width: 45px;
+    background-position: -45px 0px;
+  }
+}
+
+/* content */
+
+.date, .article-date {
+  @include uppercase-sans;
+  font-style: italic;
+}
+
+#page {
+  background-color: $color-background;
+  background-size: 101%;
+  left: -1px;
+}
+
+#content-wrapper {
+  @include flex-box;
+  margin: auto 0;
+}
+
+article.preview {
+  width: 322px;
+  height: 324px;
+  @include flex-box;
+
+  &.copy {
+    background-color: #fff;
+  }
+}
+
+p.excerpt {
+  height: 120px;
+
+  .article1 & {
+    height: 95px;
+  }
+}
+
+.title, .article-title {
+  font: {
+    size: 160%;
+    weight: bold;
+  }
+  line-height: 1em;
+  color: $color-blue;
+}
+
+.article-title {
+  font-size: 245%;
+  width: 888px;
+  margin-bottom: 35px;
+}
+
+/* footer */
+
+footer {
+  @include flex-box;
+  position: fixed;
+  bottom: -1px;
+  z-index: 9;
+  background-color: #fff;
+  height: 40px;
+  width: 105%;
+  border-top: solid 4pt $color-border;
+  left: -5px;
+}
+
+a.return {
+  float: left;
+  margin-top: 10px;
+}
+
+#copyright {
+  float: right;
+  margin-top: 10px;
+  font-size: 80%;
+  color: lighten($color-text, 50%);
+}
