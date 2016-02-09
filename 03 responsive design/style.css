@@ -8,7 +8,7 @@ body {
 a {
   text-decoration: none;
   color: #626f7f; }
-  a:hover, a:current {
+  a:hover, a.current {
     color: #ff0099; }
   a.social {
     height: 43px;
@@ -32,6 +32,20 @@ a {
       float: right; }
 
 /* header */
+header {
+  display: flex;
+  align-content: center;
+  align-content: left;
+  width: 100%;
+  height: 12%;
+  background-color: #fff;
+  border-bottom: solid 4pt #84b8c6; }
+
+#banner {
+  width: 400px;
+  height: 100px;
+  padding: 25px; }
+
 .headline {
   font-family: "Droid Serif", Times, serif;
   font-weight: bold;
@@ -48,7 +62,10 @@ a {
   margin: 1em;
   overflow: hidden;
   margin-left: 9.8%;
-  margin-top: -10px; }
+  margin-top: -10px;
+  position: relative;
+  left: -35px;
+  width: 100%; }
   .primary-nav ul {
     margin-left: -3px;
     padding: 0; }
@@ -83,12 +100,14 @@ a {
       transition: all 0.25s ease 0; }
 
 #social-external-nav {
-  display: flex;
-  align-content: center; }
+  width: 400px;
+  height: 100px;
+  padding: 25px 25px 25px 500px; }
+  #social-external-nav#social-fb, #social-external-nav #social-twitter {
+    position: relative; }
   #social-external-nava#social-fb {
     width: 45px;
     background-position: 0px 0px;
-    clear: right;
     margin-left: -10px;
     margin-right: 10%; }
   #social-external-nava#social-twitter {
@@ -105,24 +124,41 @@ a {
 
 #page {
   background-color: #f3f1ed;
-  background-size: 101%;
-  left: -1px; }
+  background-size: 110%;
+  left: -10px;
+  z-index: -1; }
 
 #content-wrapper {
+  margin: auto 0;
   display: flex;
-  align-content: center;
-  margin: auto 0; }
+  align-content: center; }
+
+#content {
+  box-sizing: border-box;
+  margin: auto 0;
+  position: relative;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; }
 
 article.preview {
   width: 322px;
   height: 324px;
-  display: flex;
-  align-content: center; }
+  padding: 10px 10px 40px 10px;
+  margin: 20px 10px 20px 10px; }
   article.preview.copy {
     background-color: #fff; }
 
 p.excerpt {
-  height: 120px; }
+  height: 120px;
+  width: 322px; }
   .article1 p.excerpt {
     height: 95px; }
 
