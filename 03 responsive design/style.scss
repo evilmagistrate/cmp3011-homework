@@ -92,8 +92,6 @@ a {
 
 /* header */
 
-TODO- fix anchor color issue, add sizing for banner and header
-
 .headline {
   font: {
     family: $font-headline;
@@ -147,11 +145,9 @@ TODO- fix anchor color issue, add sizing for banner and header
   @include flex-box;
 
   &.CMOS {
-    TODO- positioning
   }
 
   &#social-fb, #social-twitter {
-    TODO- positioning
   }
 
   &a#social-fb {
@@ -170,7 +166,7 @@ TODO- fix anchor color issue, add sizing for banner and header
 
 /* content */
 
-.date, .article date {
+.date, .article-date {
   @include uppercase-sans;
   font-style: italic;
 }
@@ -241,5 +237,6 @@ a.return {
 #copyright {
   float: right;
   margin-top: 10px;
-  font-size: 80%pt;
+  font-size: 80%;
   color: lighten($color-text, 50%);
+}
