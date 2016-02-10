@@ -95,7 +95,7 @@ header {
       -moz-transition: all 1s ease 0s;
       -o-transition: all 1s ease 0s;
       transition: all 1s ease 0s;
-      margin-right: 10px; }
+      margin: 5px; }
     .primary-nav li > a:hover {
       color: #fff;
       -webkit-transition: all 0.25s ease 0;
@@ -220,7 +220,7 @@ a.return {
 #copyright {
   float: right;
   margin-top: 10px;
-  margin-right: 11%;
+  margin-right: 19%;
   font-size: 10pt;
   color: #a6afba; }
 
@@ -237,32 +237,32 @@ a.return {
   margin-bottom: 10px;
   margin-left: -5px; }
 
-figure {
-  float: right;
-  margin: 20px 28%; }
+.blog-image {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0px 20px 36px; }
+  @media screen and (max-width: 400px) {
+    .blog-image .left,
+    .blog-image .right {
+      float: none;
+      width: auto; } }
 
 .column1, .column2 {
   float: left;
-  width: 436px; }
+  width: 35%; }
 
-.column1 {
-  position: relative;
-  top: -260px; }
+.column2 {
+  margin: 10px 10px 10px 33px; }
 
 aside {
   position: absolute;
   top: 400px;
-  right: -10px; }
+  right: -35px; }
 
 .related-articles, .popular-articles {
   position: relative;
-  right: 124.5px; }
-
-.related-articles {
-  top: -385px; }
-
-.popular-articles {
-  top: -380px; }
+  right: 124.5px;
+  top: -211px; }
 
 h2 {
   font-family: "Times New Roman", Times, Georgia, serif;
@@ -299,8 +299,7 @@ h2 {
 
 .article-nav {
   position: relative;
-  padding: 0;
-  bottom: -200px; }
+  padding: 0; }
 
 li.previous {
   position: absolute;
@@ -348,12 +347,12 @@ li.next:hover {
 
 .previous-title {
   position: absolute;
-  bottom: -238px;
+  bottom: -40px;
   left: 129px; }
 
 .next-title {
   position: absolute;
-  bottom: -238px;
+  bottom: -40px;
   right: 25.8%; }
 
 h3 > a {
