@@ -216,6 +216,7 @@ a#social-twitter {
 .copy {
   background-color: #fff;
   padding: 12px 12px 12px 12px;
+
 }
 
 article {
@@ -241,7 +242,7 @@ p.excerpt {
   }
 }
 
-.title, .article-title {
+.title {
   font: {
     size: 20pt;
     weight: bold;
@@ -308,27 +309,29 @@ a.return {
   color: lighten($color-text, 25%);
 }
 
-TODO- fix this shit
+/* blog page */
 
+.article-header {
+  height: 60px;
+  margin-bottom: 40px;
+}
 
 .article-title {
-  font-size: 30pt;
-  width: 888px;
-  margin-bottom: 35px;
-}
 
-.article-date {
-  position: absolute;
-  top: 80px;
-}
+  font: {
+      size: 30pt;
+      weight: bold;
+  }
 
-.article-main {
-  width: 101%;
-}
+    line-height: 1em;
+    color: $color-blue;
+    margin-bottom: 10px;
+  margin-left: -5px;
+  }
 
 figure {
   float: right;
-  margin: 36px 21%;
+  margin: 20px 28%;
 }
 
 .column1, .column2 {
@@ -342,7 +345,7 @@ figure {
 }
 
 .column2 {
-  margin: 5px 24px 0px 40px;
+
 }
 
 aside {
@@ -365,38 +368,41 @@ aside {
 }
 
 h2 {
-  font-family: "Times New Roman", Times, Georgia, serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 16pt;
-  color: #0bb3d0;
+  font: {
+
+    family: "Times New Roman", Times, Georgia, serif;
+    style: italic;
+    weight: bold;
+   size: 16pt;
+  }
+  color: $color-blue;
   position: relative;
   left: -26px;
 }
 
 .side-title {
-  font-size: 11pt;
-  font-weight: bold;
-  color: #626f7f;
-  -webkit-transition: all 1s linear;
-  -moz-transition: all 1s linear;
-  -o-transition: all 1s linear;
-  transition: all 1s linear;
+  font: {
+    size: 11pt;
+    weight: bold;
+  }
+  color: $color-text;
+  @include transition (all, 1s, linear, 0s);
+
 }
 
 .side-title:hover {
-  color: #ff0099;
-  -webkit-transition: all .3s linear;
-  -moz-transition: all .3s linear;
-  -o-transition: all .3s linear;
-  transition: all .3s linear;
+  color: $color-pink;
+  @include transition (all, .3s, linear, 0s);
+
 }
 
 .side-title span{
-  font-size: 7pt;
-  font-style: italic;
+  font: {
+    size: 7pt;
+    style: italic;
+  }
   text-transform: uppercase;
-  color: #626f7f;
+  color: $color-text;
   font-family: Verdana, Geneva, sans-serif;
   line-height: 1.5em;
 }
@@ -417,10 +423,7 @@ li.previous {
   width: 106px;
   background-position: 0px 0px;
   z-index: 2;
-  -webkit-transition: all 2s ease.5;
-  -moz-transition: all 2s ease .5;
-  -o-transition: all 2s ease .5;
-  transition: all 2s ease .5;
+
 }
 
 li.previous:hover {
@@ -433,10 +436,7 @@ li.previous:hover {
   width: 106px;
   background-position: -106px 0px;
   z-index: 2;
-  -webkit-transition: all 0s ease.5;
-  -moz-transition: all 0s ease .5;
-  -o-transition: all 0s ease .5;
-  transition: all 0s ease .5;
+
 }
 
 li.next {
@@ -449,10 +449,7 @@ li.next {
   width: 83.5px;
   background-position: 0px 0px;
   z-index: 2;
-  -webkit-transition: all 2s ease.5;
-  -moz-transition: all 2s ease .5;
-  -o-transition: all 2s ease .5;
-  transition: all 2s ease .5;
+
 }
 
 li.next:hover {
@@ -465,10 +462,7 @@ li.next:hover {
   width: 83.5px;
   background-position: -83.5px 0px;
   z-index: 2;
-  -webkit-transition: all 0s ease.5;
-  -moz-transition: all 0s ease .5;
-  -o-transition: all 0s ease .5;
-  transition: all 0s ease .5;
+
 }
 
 .previous-title {
