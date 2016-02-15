@@ -1,10 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700italic);
-@media only screen and (max-width: 1024px) {
-  .article9, .extra {
-    visibility: hidden; } }
-@media only screen and (max-width: 1024px) and (max-width: 750px) {
-  .article9, .extra {
-    visibility: hidden; } }
 /* the whole enchilada */
 body {
   font-family: "Times New Roman", Times, Georgia, serif;
@@ -20,6 +14,8 @@ a {
   color: #626f7f; }
   a:hover, a.current {
     color: #ff0099; }
+  a:active, a:visited {
+    color: #0889a0; }
   a.social {
     height: 43px;
     background-image: url("images/fb-twitter.gif");
@@ -53,11 +49,18 @@ header {
   left: -1px;
   border-bottom: solid 4pt #84b8c6;
   z-index: 9; }
+  @media only screen and (max-width: 750px) {
+    header {
+      max-height: 120px; } }
 
 #banner {
   width: 500px;
   height: 100px;
   padding: 30px 10px 15px 95px; }
+  @media only screen and (max-width: 750px) {
+    #banner {
+      max-width: 100%;
+      padding: 25px 10px 10px 30px; } }
 
 .headline {
   font-family: "Droid Serif", Times, serif;
@@ -69,6 +72,8 @@ header {
   .headline span {
     color: #b4d433; }
   .headline:hover {
+    color: #0bb3d0; }
+  .headline:visited {
     color: #0bb3d0; }
 
 .primary-nav {
@@ -97,22 +102,19 @@ header {
     -moz-transition: all 1s ease 0.3s;
     -o-transition: all 1s ease 0.3s;
     transition: all 1s ease 0.3s; }
-    @media only screen and (max-width: 750px) {
-      .primary-nav li .article9, .primary-nav li .extra {
-        visibility: hidden; } }
-    .primary-nav li:hover {
-      background-color: #b4d433;
-      -webkit-transition: all 1s ease 0s;
-      -moz-transition: all 1s ease 0s;
-      -o-transition: all 1s ease 0s;
-      transition: all 1s ease 0s;
-      margin: 5px; }
-    .primary-nav li > a:hover {
-      color: #fff;
-      -webkit-transition: all 0.25s ease 0;
-      -moz-transition: all 0.25s ease 0;
-      -o-transition: all 0.25s ease 0;
-      transition: all 0.25s ease 0; }
+  .primary-nav:hover {
+    background-color: #b4d433;
+    -webkit-transition: all 1s ease 0s;
+    -moz-transition: all 1s ease 0s;
+    -o-transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+    margin: 5px; }
+  .primary-nav > a:hover {
+    color: #fff;
+    -webkit-transition: all 0.25s ease 0;
+    -moz-transition: all 0.25s ease 0;
+    -o-transition: all 0.25s ease 0;
+    transition: all 0.25s ease 0; }
 
 #social-external-nav {
   position: absolute;
@@ -158,6 +160,9 @@ a#social-twitter {
   @media only screen and (max-width: 1024px) {
     #content {
       margin-left: 8.6%; } }
+  @media only screen and (max-width: 750px) {
+    #content {
+      flex-wrap: wrap; } }
 
 .copy {
   background-color: #fff;
@@ -174,12 +179,15 @@ article {
   padding: 10px 0 40px 0;
   vertical-align: top;
   margin: 10px; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 750px) {
     article {
-      max-width: 75%;
-      width: 80%;
-      display: block;
-      padding: 5px 0 5px 0; } }
+      flex-grow: 1;
+      vertical-align: top;
+      max-width: 321px;
+      max-height: 324px;
+      display: inline-block;
+      padding: 10px 0 20px 0;
+      margin: 10px; } }
 
 img.thumb {
   height: 138px;
@@ -432,5 +440,15 @@ h3 > a {
   font-weight: bold;
   font-size: 16pt;
   color: #0bb3d0; }
+
+@media only screen and (max-width: 1024px) {
+  .article9, .extra {
+    visibility: hidden; } }
+@media only screen and (max-width: 1024px) and (max-width: 750px) {
+  .article9, .extra {
+    visibility: hidden; }
+
+  .primary-nav {
+    flex-direction: column; } }
 
 /*# sourceMappingURL=style.css.map */
