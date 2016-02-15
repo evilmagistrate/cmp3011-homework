@@ -70,11 +70,6 @@ $width-large: 1366px;
   }
 }
 
-@mixin rounded($radius) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
-}
 
 /* the whole enchilada */
 
@@ -98,22 +93,18 @@ a {
 
   &:hover, &.current {
     color: $color-pink;
-
-    @include responsive(small-screens) {
-      color: #fff;
-    }
   }
 
   &:active, &:visited {
     color: darken($color-blue, 10%);
   }
 
-  //&.social {
-  //  height: 43px;
-  //  background-image: url("images/fb-twitter.gif");
-  //  text-indent: -9999px;
-  //  display: inline-block;
-  //}
+  &.social {
+    height: 43px;
+    background-image: url("images/fb-twitter.gif");
+    text-indent: -9999px;
+    display: inline-block;
+  }
 
   &#readmore {
     background-image: url("images/read-more-off.jpg");
@@ -154,6 +145,10 @@ header {
   min-width: 151%;
   }
 
+  @include responsive(tiny-screens) {
+    max-height: 180px;
+    min-width: 230%;
+  }
 }
 
 #banner {
@@ -207,6 +202,11 @@ header {
     background-color: $color-border;
   }
 
+  @include responsive(tiny-screens) {
+    width: 220%;
+    height: 60px;
+  }
+
   & ul {
     margin-left: -3px;
     padding: 0;
@@ -234,10 +234,20 @@ header {
       font-weight: bolder;
       padding: 2px 12px 2px 12px;
     }
+
+    @include responsive(tiny-screens) {
+      font-size: 160%;
+      font-weight: bolder;
+      padding: 2px 12px 2px 12px;
+    }
   }
 
     & a {
       @include transition (all, 1s, ease, 0s);
+
+      &:visited {
+        color: $color-text;
+      }
     }
 
     & a:hover {
@@ -258,23 +268,34 @@ header {
     right: -40%;
     top: 10px;
   }
+
+  @include responsive(tiny-screens) {
+    right: -400px;
+    top: 10px;
+  }
 }
 
 .search {
 
   @include responsive(wide-screens) {
       visibility: hidden;
-      width: 0px;
-      height: 0px;
+      width: 0;
+      height: 0;
     }
 
   @include responsive(small-screens) {
+    visibility: visible;
     width: 250px;
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
     top: 46px;
-    right: 60px;
+    right: 50px;
+
+    @include responsive(tiny-screens) {
+    position: absolute;
+    top: 100px;
+    }
 
     & .icon {
       position: absolute;
@@ -290,8 +311,7 @@ header {
       @include responsive(small-screens) {
         width: 50px;
         height: 35px;
-        background: #fff;
-        color: $color-background;
+        background: $color-background;
         border: none;
         font-size: 10pt;
         float: left;
@@ -327,7 +347,7 @@ header {
     margin-top: 16px;
 
     @include responsive(small-screens) {
-      position: relative;
+      position: absolute;
       top: 84px;
       right: 8px;
     }
@@ -340,10 +360,9 @@ header {
     margin-left: -10px;
 
     @include responsive (small-screens) {
-      font-size: 44px;
-      color: #fff;
+      background-image: url(images/mobile-fb.gif);
       opacity: 0.6;
-      margin-left: 10px;
+      margin-left: 8px;
     }
   }
 
@@ -352,9 +371,9 @@ header {
     background-position: -45px 0;
 
     @include responsive (small-screens) {
-      font-size: 44px;
-      color: #fff;
+      background-image: url(images/mobile-twitter.gif);
       opacity: 0.6;
+      right: 50px;
     }
   }
 
@@ -363,6 +382,10 @@ header {
   .date, .article-date {
     @include uppercase-sans;
     font-style: italic;
+
+    @include responsive (small-screens) {
+      font-size: 10pt;
+    }
   }
 
   #content {
@@ -378,8 +401,10 @@ header {
     align-items: flex-start;
 
     @include responsive (small-screens) {
-      flex-wrap: wrap;
-      margin-left: 1%;
+      margin-top: 8%;
+      justify-content: center;
+      flex-direction: column;
+      width: 667px;
     }
   }
 
@@ -393,8 +418,7 @@ header {
     }
 
     @include responsive(small-screens) {
-      padding: 20px;
-      width: 100%;
+      padding: 25px;
     }
   }
 
@@ -417,12 +441,13 @@ header {
     }
 
     @include responsive(small-screens) {
-      flex-grow: 1;
-      vertical-align: top;
-      max-width: 245px;
-      max-height: 280px;
-      display: inline-block;
-      margin: 0 30px 0 30px;
+      max-width: 100%;
+      max-height: 300px;
+      padding: 10px 0 30px 0;
+      margin-top: 0;
+      margin-right: 0;
+      margin-left: 40px;
+      margin-bottom: 10px;
     }
   }
 
@@ -447,14 +472,22 @@ header {
       padding: 5px 15px 10px 10px;
     }
 
+    @include responsive (small-screens) {
+      font-size: 16pt;
+      line-height: 1.2em;
+      max-width: 100%;
+      padding: 5px 16px 20px 10px;
+    }
+
     .article1 & {
       height: 95px;
 
       @include responsive (medium-screens) {
         height: 86px;
       }
+
       @include responsive (small-screens) {
-        height: 87px;
+        height: 100px;
       }
     }
   }
@@ -471,6 +504,11 @@ header {
     @include responsive (medium-screens) {
       font-size: 24pt;
     }
+
+    @include responsive (small-screens) {
+      font-size: 28pt;
+      line-height: 1.3em;
+    }
   }
 
   #readmore {
@@ -479,10 +517,9 @@ header {
     right: 15px;
 
     @include responsive (small-screens) {
-      bottom: 10px;
-      right: 5px;
+      bottom: 40px;
+      right: 15px;
     }
-
   }
 
   a {
@@ -495,6 +532,15 @@ header {
       width: 75px;
       background-position: 0 0;
       float: right;
+
+      @include responsive (small-screens) {
+        background-image: url("images/read-more-mobile.png");
+        position: relative;
+        height: 50px;
+        width: 164px;
+        float: right;
+      }
+
     }
 
     &#readmore:hover {
@@ -505,6 +551,15 @@ header {
       width: 75px;
       background-position: -77px 0;
       float: right;
+
+      @include responsive (small-screens) {
+        background-image: url("images/read-more-mobile.png");
+        position: relative;
+        height: 50px;
+        width: 164px;
+        float: right;
+        background-position: 0px 0;
+      }
     }
   }
 
@@ -555,6 +610,11 @@ header {
       font-size: 14px;
       margin-right: 28px;
     }
+
+    @include responsive(tiny-screens) {
+      font-size: 14pt;
+      margin-top: 8px;
+    }
   }
 
   /* blog page */
@@ -562,6 +622,10 @@ header {
   .article-header {
     height: 60px;
     margin-bottom: 40px;
+
+    @include responsive(small-screens) {
+      height: 100px;
+    }
   }
 
   .article-title {
@@ -580,6 +644,11 @@ header {
       font-size: 28pt;
       margin-bottom: 6px;
     }
+
+    @include responsive(small-screens) {
+      font-size: 42pt;
+      margin-bottom: 6px;
+    }
   }
 
   .blog-image {
@@ -593,6 +662,11 @@ header {
       margin: 20px 0 20px 36px;
     }
 
+    @include responsive (small-screens) {
+    position: relative;
+    max-width: 300%;
+    margin: 25px 0 20px 12px;
+    }
   }
 
   .column1, .column2 {
@@ -603,10 +677,18 @@ header {
       float: left;
       width: 32%;
     }
+
+    @include responsive (small-screens) {
+      width: 80%;
+    }
   }
 
   .column2 {
     margin: 10px 10px 10px 33px;
+
+    @include responsive (small-screens) {
+      margin: 0;
+    }
   }
 
   aside {
@@ -619,6 +701,12 @@ header {
       top: -252px;
       right: 40px;
     }
+
+    @include responsive(small-screens) {
+      position: absolute;
+      top: -252px;
+      right: -220px;
+    }
   }
 
   .related-articles, .popular-articles {
@@ -629,6 +717,11 @@ header {
     @include responsive(medium-screens) {
       top: 440px;
       right: 1px;
+    }
+
+    @include responsive(small-screens) {
+      top: 428px;
+      right: -50px;
     }
   }
 
@@ -643,6 +736,11 @@ header {
     color: $color-blue;
     position: relative;
     left: -26px;
+
+    @include responsive(small-screens) {
+      font-size: 24pt;
+      left: -10px;
+    }
   }
 
 
@@ -654,12 +752,14 @@ header {
     color: $color-text;
     @include transition (all, 1s, linear, 0s);
 
+    @include responsive(small-screens) {
+      font-size: 16pt;
+    }
   }
 
   .side-title:hover {
     color: $color-pink;
     @include transition (all, .3s, linear, 0s);
-
   }
 
   .side-title span {
@@ -671,6 +771,11 @@ header {
     color: $color-text;
     font-family: Verdana, Geneva, sans-serif;
     line-height: 1.5em;
+
+    @include responsive(small-screens) {
+      font-size: 11pt;
+
+    }
   }
 
   .article-nav {
@@ -692,6 +797,14 @@ header {
     @include responsive(medium-screens) {
       left: 70px;
       bottom: 116px;
+    }
+
+    @include responsive(small-screens) {
+      background-image: url("images/previous-mobile.png");
+      height: 50px;
+      width: 235px;
+      left: 20px;
+      bottom: 90px;
     }
   }
 
@@ -722,6 +835,18 @@ header {
       right: 28%;
       bottom: 116px;
     }
+
+    @include responsive(small-screens) {
+      background-image: url("images/next-mobile.png");
+      height: 50px;
+      width: 204px;
+      bottom: 90px;
+      right: -40%;
+    }
+
+    @include responsive(tiny-screens) {
+      right: -86%;
+    }
   }
 
   li.next:hover {
@@ -745,6 +870,12 @@ header {
       left: 86px;
       bottom: 90px;
     }
+
+    @include responsive(small-screens) {
+      left: 60px;
+      bottom: 60px;
+      font-size: 24pt;
+    }
   }
 
   .next-title {
@@ -755,6 +886,18 @@ header {
     @include responsive(medium-screens) {
       right: 29.2%;
       bottom: 90px;
+    }
+
+    @include responsive(small-screens) {
+      right: -32%;
+      bottom: 60px;
+      font-size: 24pt;
+    }
+
+    @include responsive(tiny-screens) {
+      right: -70%;
+      bottom: 60px;
+      font-size: 24pt;
     }
   }
 
@@ -782,7 +925,15 @@ header {
       position: absolute;
     }
 
-    .tldr::after {
-      content: "...";
+    a.current {
+      background-color: $color-background;
+      margin: 8px 6px;
+      padding: 5px 6px 20px 6px;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+
+    .article-main {
+      margin-bottom: 100px;
     }
   }
