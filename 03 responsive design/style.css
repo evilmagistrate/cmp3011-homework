@@ -1,10 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700italic);
+@media only screen and (max-width: 1024px) {
+  .article9, .extra {
+    visibility: hidden; } }
+@media only screen and (max-width: 1024px) and (max-width: 750px) {
+  .article9, .extra {
+    visibility: hidden; } }
 /* the whole enchilada */
 body {
   font-family: "Times New Roman", Times, Georgia, serif;
   font-size: 95%;
   color: #626f7f;
   background-color: #f3f1ed; }
+
+#content-wrapper {
+  height: 100%; }
 
 a {
   text-decoration: none;
@@ -22,14 +31,14 @@ a {
     position: relative;
     height: 9px;
     width: 75px;
-    background-position: 0px 0px; }
+    background-position: 0 0; }
     a#readmore:hover {
       background-image: url("images/read-more-off.jpg");
       text-indent: -9999px;
       display: inline-block;
       height: 9px;
       width: 75px;
-      background-position: -77px 0px;
+      background-position: -77px 0;
       float: right; }
 
 /* header */
@@ -42,7 +51,8 @@ header {
   width: 105%;
   height: 160px;
   left: -1px;
-  border-bottom: solid 4pt #84b8c6; }
+  border-bottom: solid 4pt #84b8c6;
+  z-index: 9; }
 
 #banner {
   width: 500px;
@@ -63,10 +73,8 @@ header {
 
 .primary-nav {
   position: relative;
-  margin: 1em;
   overflow: hidden;
-  margin-left: 9.8%;
-  margin-top: -10px;
+  margin: -10px 1em 1em 9.8%;
   position: relative;
   left: -52px;
   width: 100%; }
@@ -89,6 +97,9 @@ header {
     -moz-transition: all 1s ease 0.3s;
     -o-transition: all 1s ease 0.3s;
     transition: all 1s ease 0.3s; }
+    @media only screen and (max-width: 750px) {
+      .primary-nav li .article9, .primary-nav li .extra {
+        visibility: hidden; } }
     .primary-nav li:hover {
       background-color: #b4d433;
       -webkit-transition: all 1s ease 0s;
@@ -118,12 +129,12 @@ header {
 a#social-fb {
   clear: right;
   width: 45px;
-  background-position: 0px 0px;
+  background-position: 0 0;
   margin-left: -10px; }
 
 a#social-twitter {
   width: 45px;
-  background-position: -45px 0px; }
+  background-position: -45px 0; }
 
 /* content */
 .date, .article-date {
@@ -136,10 +147,7 @@ a#social-twitter {
 
 #content {
   box-sizing: border-box;
-  margin: auto 0;
-  position: relative;
-  margin-bottom: 50px;
-  margin-left: 8.6%;
+  margin: auto 0 auto 8.6%;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -147,27 +155,49 @@ a#social-twitter {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start; }
+  @media only screen and (max-width: 1024px) {
+    #content {
+      margin-left: 8.6%; } }
 
 .copy {
   background-color: #fff;
-  padding: 12px 12px 12px 12px; }
+  padding: 12px; }
+  @media only screen and (max-width: 1024px) {
+    .copy {
+      padding: 32px 32px 26px 32px;
+      width: 100%; } }
 
 article {
   max-width: 321px;
   max-height: 324px;
   display: inline-block;
-  padding: 10px 0px 40px 0px;
+  padding: 10px 0 40px 0;
   vertical-align: top;
-  margin: 10px 10px 10px 10px; }
+  margin: 10px; }
+  @media only screen and (max-width: 1024px) {
+    article {
+      max-width: 75%;
+      width: 80%;
+      display: block;
+      padding: 5px 0 5px 0; } }
 
 img.thumb {
   height: 138px;
   width: 321px; }
+  @media only screen and (max-width: 1024px) {
+    img.thumb {
+      visibility: hidden;
+      height: 1px;
+      width: 1px; } }
 
 p.excerpt {
   height: 120px;
   max-width: 320px;
   padding: 5px 15px 10px 15px; }
+  @media only screen and (max-width: 1024px) {
+    p.excerpt {
+      max-width: 560px;
+      padding: 5px 15px 10px 10px; } }
   .article1 p.excerpt {
     height: 95px; }
 
@@ -177,6 +207,9 @@ p.excerpt {
   line-height: 1em;
   max-width: 300px;
   color: #0bb3d0; }
+  @media only screen and (max-width: 1024px) {
+    .title {
+      font-size: 24pt; } }
 
 #readmore {
   position: absolute;
@@ -189,7 +222,7 @@ a#readmore {
   position: relative;
   height: 9px;
   width: 75px;
-  background-position: 0px 0px;
+  background-position: 0 0;
   float: right; }
 a#readmore:hover {
   background-image: url("images/read-more-off.jpg");
@@ -197,7 +230,7 @@ a#readmore:hover {
   display: inline-block;
   height: 9px;
   width: 75px;
-  background-position: -77px 0px;
+  background-position: -77px 0;
   float: right; }
 
 /* footer */
@@ -216,6 +249,9 @@ a.return {
   float: left;
   margin-top: 10px;
   margin-left: 125px; }
+  @media only screen and (max-width: 1024px) {
+    a.return {
+      margin-left: 90px; } }
 
 #copyright {
   float: right;
@@ -223,6 +259,9 @@ a.return {
   margin-right: 19%;
   font-size: 10pt;
   color: #a6afba; }
+  @media only screen and (max-width: 1024px) {
+    #copyright {
+      margin-right: 11%; } }
 
 /* blog page */
 .article-header {
@@ -236,20 +275,28 @@ a.return {
   color: #0bb3d0;
   margin-bottom: 10px;
   margin-left: -5px; }
+  @media only screen and (max-width: 1024px) {
+    .article-title {
+      font-size: 28pt;
+      margin-bottom: 6px; } }
 
 .blog-image {
   max-width: 100%;
   height: auto;
-  margin: 20px 0px 20px 36px; }
-  @media screen and (max-width: 400px) {
-    .blog-image .left,
-    .blog-image .right {
-      float: none;
-      width: auto; } }
+  margin: 20px 0 20px 36px; }
+  @media only screen and (max-width: 1024px) {
+    .blog-image {
+      max-width: 32%;
+      height: auto;
+      margin: 20px 0 20px 36px; } }
 
 .column1, .column2 {
   float: left;
   width: 35%; }
+  @media only screen and (max-width: 1024px) {
+    .column1, .column2 {
+      float: left;
+      width: 32%; } }
 
 .column2 {
   margin: 10px 10px 10px 33px; }
@@ -258,11 +305,20 @@ aside {
   position: absolute;
   top: 400px;
   right: -35px; }
+  @media only screen and (max-width: 1024px) {
+    aside {
+      position: absolute;
+      top: -252px;
+      right: 40px; } }
 
 .related-articles, .popular-articles {
   position: relative;
   right: 124.5px;
   top: -211px; }
+  @media only screen and (max-width: 1024px) {
+    .related-articles, .popular-articles {
+      top: 440px;
+      right: 1px; } }
 
 h2 {
   font-family: "Times New Roman", Times, Georgia, serif;
@@ -309,8 +365,12 @@ li.previous {
   text-indent: -9999px;
   height: 12px;
   width: 106px;
-  background-position: 0px 0px;
+  background-position: 0 0;
   z-index: 2; }
+  @media only screen and (max-width: 1024px) {
+    li.previous {
+      left: 70px;
+      bottom: 116px; } }
 
 li.previous:hover {
   position: absolute;
@@ -320,7 +380,7 @@ li.previous:hover {
   text-indent: -9999px;
   height: 12px;
   width: 106px;
-  background-position: -106px 0px;
+  background-position: -106px 0;
   z-index: 2; }
 
 li.next {
@@ -331,8 +391,12 @@ li.next {
   text-indent: -9999px;
   height: 12px;
   width: 83.5px;
-  background-position: 0px 0px;
+  background-position: 0 0;
   z-index: 2; }
+  @media only screen and (max-width: 1024px) {
+    li.next {
+      right: 28%;
+      bottom: 116px; } }
 
 li.next:hover {
   position: absolute;
@@ -342,18 +406,26 @@ li.next:hover {
   text-indent: -9999px;
   height: 12px;
   width: 83.5px;
-  background-position: -83.5px 0px;
+  background-position: -83.5px 0;
   z-index: 2; }
 
 .previous-title {
   position: absolute;
   bottom: -40px;
   left: 129px; }
+  @media only screen and (max-width: 1024px) {
+    .previous-title {
+      left: 86px;
+      bottom: 90px; } }
 
 .next-title {
   position: absolute;
   bottom: -40px;
   right: 25.8%; }
+  @media only screen and (max-width: 1024px) {
+    .next-title {
+      right: 29.2%;
+      bottom: 90px; } }
 
 h3 > a {
   font-family: "Times New Roman", Times, Georgia, serif;
