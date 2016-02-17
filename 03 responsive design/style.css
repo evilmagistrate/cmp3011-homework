@@ -50,6 +50,9 @@ header {
   left: -1px;
   border-bottom: solid 4pt #84b8c6;
   z-index: 9; }
+  @media only screen and (max-width: 1024px) {
+    header {
+      min-width: 118%; } }
   @media only screen and (max-width: 667px) {
     header {
       max-height: 128px;
@@ -169,7 +172,7 @@ header {
 #social-external-nav {
   position: absolute;
   right: 10%;
-  top: 25px; }
+  top: 42px; }
   @media only screen and (max-width: 667px) {
     #social-external-nav {
       right: -40%;
@@ -257,12 +260,10 @@ header {
   margin-top: 16px; }
   @media only screen and (max-width: 667px) {
     #social-fb, #social-twitter {
-      position: absolute;
       top: 84px;
       right: 8px; } }
   @media only screen and (max-width: 375px) {
     #social-fb, #social-twitter {
-      position: absolute;
       right: -8px;
       top: 210px; } }
 
@@ -297,6 +298,9 @@ a#social-twitter {
   @media only screen and (max-width: 667px) {
     .date, .article-date {
       font-size: 10pt; } }
+  @media only screen and (max-width: 375px) {
+    .date, .article-date {
+      font-size: 20pt; } }
 
 #content {
   box-sizing: border-box;
@@ -348,10 +352,10 @@ article {
       max-width: 100%;
       max-height: 300px;
       padding: 10px 0 30px 0;
-      margin-top: 0;
-      margin-right: 0;
-      margin-left: 40px;
-      margin-bottom: 10px; } }
+      margin: 0 0 10px 40px; } }
+  @media only screen and (max-width: 375px) {
+    article {
+      margin-top: 20px; } }
 
 img.thumb {
   height: 138px;
@@ -376,6 +380,10 @@ p.excerpt {
       line-height: 1.2em;
       max-width: 100%;
       padding: 5px 16px 20px 10px; } }
+  @media only screen and (max-width: 375px) {
+    p.excerpt {
+      font-size: 22pt;
+      line-height: 1em; } }
   .article1 p.excerpt {
     height: 95px; }
     @media only screen and (max-width: 1024px) {
@@ -398,6 +406,10 @@ p.excerpt {
     .title {
       font-size: 28pt;
       line-height: 1.3em; } }
+  @media only screen and (max-width: 375px) {
+    .title {
+      font-size: 40pt;
+      line-height: 1em; } }
 
 #readmore {
   position: absolute;
@@ -470,6 +482,9 @@ a.return {
       font-size: 18px;
       margin-left: 4.5%;
       font-weight: bold; } }
+  @media only screen and (max-width: 375px) {
+    a.return {
+      margin-left: 4.5%; } }
 
 #copyright {
   float: right;
@@ -482,12 +497,13 @@ a.return {
       margin-right: 11%; } }
   @media only screen and (max-width: 667px) {
     #copyright {
-      font-size: 14px;
-      margin-right: 28px; } }
+      font-size: 16px;
+      margin-top: 8px;
+      margin-right: 60px;
+      color: #626f7f; } }
   @media only screen and (max-width: 375px) {
     #copyright {
-      font-size: 14pt;
-      margin-top: 8px; } }
+      margin-right: 10%; } }
 
 /* blog page */
 .article-header {
@@ -512,6 +528,10 @@ a.return {
     .article-title {
       font-size: 42pt;
       margin-bottom: 6px; } }
+  @media only screen and (max-width: 375px) {
+    .article-title {
+      font-size: 56pt;
+      margin-bottom: 14px; } }
 
 .blog-image {
   max-width: 100%;
@@ -527,6 +547,11 @@ a.return {
       position: relative;
       max-width: 300%;
       margin: 25px 0 20px 12px; } }
+  @media only screen and (max-width: 375px) {
+    .blog-image {
+      width: 666px;
+      padding: 80px 0 14px 0;
+      margin-left: -2px; } }
 
 .column1, .column2 {
   float: left;
@@ -538,6 +563,9 @@ a.return {
   @media only screen and (max-width: 667px) {
     .column1, .column2 {
       width: 80%; } }
+  @media only screen and (max-width: 375px) {
+    .column1, .column2 {
+      width: 100%; } }
 
 .column2 {
   margin: 10px 10px 10px 33px; }
@@ -559,6 +587,9 @@ aside {
       position: absolute;
       top: -252px;
       right: -220px; } }
+  @media only screen and (max-width: 375px) {
+    aside {
+      visibility: hidden; } }
 
 .related-articles, .popular-articles {
   position: relative;
@@ -633,7 +664,7 @@ li.previous {
   @media only screen and (max-width: 1024px) {
     li.previous {
       left: 70px;
-      bottom: 116px; } }
+      bottom: 80px; } }
   @media only screen and (max-width: 667px) {
     li.previous {
       background-image: url("images/previous-mobile.png");
@@ -666,7 +697,7 @@ li.next {
   @media only screen and (max-width: 1024px) {
     li.next {
       right: 28%;
-      bottom: 116px; } }
+      bottom: 80px; } }
   @media only screen and (max-width: 667px) {
     li.next {
       background-image: url("images/next-mobile.png");
@@ -676,7 +707,7 @@ li.next {
       right: -40%; } }
   @media only screen and (max-width: 375px) {
     li.next {
-      right: -86%; } }
+      right: -105%; } }
 
 li.next:hover {
   position: absolute;
@@ -696,7 +727,7 @@ li.next:hover {
   @media only screen and (max-width: 1024px) {
     .previous-title {
       left: 86px;
-      bottom: 90px; } }
+      bottom: 55px; } }
   @media only screen and (max-width: 667px) {
     .previous-title {
       left: 60px;
@@ -710,7 +741,7 @@ li.next:hover {
   @media only screen and (max-width: 1024px) {
     .next-title {
       right: 29.2%;
-      bottom: 90px; } }
+      bottom: 55px; } }
   @media only screen and (max-width: 667px) {
     .next-title {
       right: -32%;
@@ -718,7 +749,7 @@ li.next:hover {
       font-size: 24pt; } }
   @media only screen and (max-width: 375px) {
     .next-title {
-      right: -70%;
+      right: -91%;
       bottom: 60px;
       font-size: 24pt; } }
 
@@ -746,5 +777,15 @@ h3 > a {
 
   .article-main {
     margin-bottom: 100px; } }
+@media only screen and (max-width: 375px) {
+  .article2 {
+    margin-top: 60px; }
+
+  .article9 {
+    visibility: visible;
+    position: inherit; }
+
+  .article-main {
+    font-size: 24pt; } }
 
 /*# sourceMappingURL=style.css.map */

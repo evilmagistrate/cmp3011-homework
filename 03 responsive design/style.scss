@@ -70,7 +70,6 @@ $width-large: 1366px;
   }
 }
 
-
 /* the whole enchilada */
 
 body {
@@ -139,6 +138,10 @@ header {
   left: -1px;
   border-bottom: solid 4pt $color-border;
   z-index: 9;
+
+  @include responsive(medium-screens) {
+    min-width: 118%;
+  }
 
   @include responsive(small-screens) {
   max-height: 128px;
@@ -277,7 +280,7 @@ header {
 #social-external-nav {
   position: absolute;
   right: 10%;
-  top: 25px;
+  top: 42px;
 
   @include responsive(small-screens) {
     right: -40%;
@@ -324,7 +327,7 @@ header {
 
       @include responsive(tiny-screens) {
       font-size: 32pt;
-        margin-left: 22px;
+      margin-left: 22px;
       }
     }
 
@@ -384,13 +387,11 @@ header {
     margin-top: 16px;
 
     @include responsive(small-screens) {
-      position: absolute;
       top: 84px;
       right: 8px;
     }
 
     @include responsive(tiny-screens) {
-      position: absolute;
       right: -8px;
       top: 210px;
     }
@@ -429,6 +430,11 @@ header {
     @include responsive (small-screens) {
       font-size: 10pt;
     }
+
+    @include responsive (tiny-screens) {
+      font-size: 20pt;
+    }
+
   }
 
   #content {
@@ -487,10 +493,11 @@ header {
       max-width: 100%;
       max-height: 300px;
       padding: 10px 0 30px 0;
-      margin-top: 0;
-      margin-right: 0;
-      margin-left: 40px;
-      margin-bottom: 10px;
+      margin: 0 0 10px 40px;
+    }
+
+    @include responsive(tiny-screens) {
+      margin-top: 20px;
     }
   }
 
@@ -522,6 +529,11 @@ header {
       padding: 5px 16px 20px 10px;
     }
 
+    @include responsive (tiny-screens) {
+      font-size: 22pt;
+      line-height: 1em;
+    }
+
     .article1 & {
       height: 95px;
 
@@ -534,6 +546,7 @@ header {
       }
     }
   }
+
 
   .title {
     font: {
@@ -551,6 +564,11 @@ header {
     @include responsive (small-screens) {
       font-size: 28pt;
       line-height: 1.3em;
+    }
+
+    @include responsive (tiny-screens) {
+      font-size: 40pt;
+      line-height: 1em;
     }
   }
 
@@ -636,6 +654,10 @@ header {
       margin-left: 4.5%;
       font-weight: bold;
     }
+
+    @include responsive(tiny-screens) {
+      margin-left: 4.5%;
+    }
   }
 
   #copyright {
@@ -650,13 +672,14 @@ header {
     }
 
     @include responsive(small-screens) {
-      font-size: 14px;
-      margin-right: 28px;
+      font-size: 16px;
+      margin-top: 8px;
+      margin-right: 60px;
+      color: $color-text;
     }
 
     @include responsive(tiny-screens) {
-      font-size: 14pt;
-      margin-top: 8px;
+      margin-right: 10%;
     }
   }
 
@@ -692,6 +715,11 @@ header {
       font-size: 42pt;
       margin-bottom: 6px;
     }
+
+    @include responsive(tiny-screens) {
+      font-size: 56pt;
+      margin-bottom: 14px;
+    }
   }
 
   .blog-image {
@@ -710,6 +738,12 @@ header {
     max-width: 300%;
     margin: 25px 0 20px 12px;
     }
+
+    @include responsive (tiny-screens) {
+      width: 666px;
+      padding: 80px 0 14px 0;
+      margin-left: -2px;
+    }
   }
 
   .column1, .column2 {
@@ -723,6 +757,10 @@ header {
 
     @include responsive (small-screens) {
       width: 80%;
+    }
+
+    @include responsive (tiny-screens) {
+      width: 100%;
     }
   }
 
@@ -749,6 +787,10 @@ header {
       position: absolute;
       top: -252px;
       right: -220px;
+    }
+
+    @include responsive(tiny-screens) {
+      visibility: hidden;
     }
   }
 
@@ -839,7 +881,7 @@ header {
 
     @include responsive(medium-screens) {
       left: 70px;
-      bottom: 116px;
+      bottom: 80px;
     }
 
     @include responsive(small-screens) {
@@ -876,7 +918,7 @@ header {
 
     @include responsive(medium-screens) {
       right: 28%;
-      bottom: 116px;
+      bottom: 80px;
     }
 
     @include responsive(small-screens) {
@@ -888,7 +930,7 @@ header {
     }
 
     @include responsive(tiny-screens) {
-      right: -86%;
+      right: -105%;
     }
   }
 
@@ -911,7 +953,7 @@ header {
 
     @include responsive(medium-screens) {
       left: 86px;
-      bottom: 90px;
+      bottom: 55px;
     }
 
     @include responsive(small-screens) {
@@ -928,7 +970,7 @@ header {
 
     @include responsive(medium-screens) {
       right: 29.2%;
-      bottom: 90px;
+      bottom: 55px;
     }
 
     @include responsive(small-screens) {
@@ -938,7 +980,7 @@ header {
     }
 
     @include responsive(tiny-screens) {
-      right: -70%;
+      right: -91%;
       bottom: 60px;
       font-size: 24pt;
     }
@@ -980,3 +1022,19 @@ header {
       margin-bottom: 100px;
     }
   }
+
+  @include responsive(tiny-screens) {
+
+  .article2 {
+    margin-top: 60px;
+  }
+
+  .article9 {
+    visibility: visible;
+    position: inherit;
+  }
+
+  .article-main {
+    font-size: 24pt;
+  }
+}
