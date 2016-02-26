@@ -1,38 +1,3 @@
-<!--
-
-This is Assignment 4 for Intermediate Web Design (CMP 3011). Please read the instructions below.
-
-JAVASCRIPT EXERCISE
-Please perform the following exercises inside this file (unless directed otherwise), adding the task number in a comment above the completed exercise.
-
-01) Using Javascript's document.write() method, add a paragraph of lorem ipsum (get some at lipsum.com, if needed) above the bulleted list at the bottom of the page. 
-02) Define a variable, myDate, and give it a value of 'today'. With document.write(), output the value of the variable on the line that says "<h2>Get involved</h2>" so that it reads "<h2>Get involved today</h2>".
-03) On the line that says "Brackets has many users!", replace "many" (just delete the word) with a JavaScript snippet that multiples 10,000 by 10,000 and divides the sum by 5 and outputs the result.  
-04) Using document.getElementById(), get the text content of the element with an ID of "extension" and print that content to the JavaScript console.
-05) Set the text content of the element with an ID of "qv" to "Quicker Viewer".
-06) Create an array of seven pieces of fruit, then print the second and fifth pieces of fruit anywhere in the body of the document. 
-07) Replace the contents of the <h3> tags with a function which takes one argument: the text to go into the <h3> tags. The function must also print the <h3> tags.
-08) In the same function as #7, use a method from the string object to convert the text passed into the function to uppercase.
-09) Output the width and height of the browser window anywhere in the body of the document, labeling the dimensions accordingly. For example, "width: 1204, height: 952".
-10) Change the background color of the document to yellow. Hint: put the code above the </body> tag.
-11) Create a link that, when clicked, opens an alert dialogue box with the URL of the current webpage.
-12) Reusing code from exercise #6, create a function to output a random piece of fruit from the fruit array. This function must live in an external file. Hint: use the Math object.
-
-OBJECTIVE
-The purpose of this assignment is for students to practice working with several JavaScript language constructs: statements, variables, arrays, functions, and objects. In addition, students will gain a greater understanding of properties, methods, and global objects.
-
-DEADLINE
-This assignment is due at the beginning of the next class. Please publish your files to your GitHub homework repository in a subfolder called "04 assignment."
-
-WEIGHT
-This assignment carries a weight of .85.
-
-* * * * *
-
-If you have any questions, please send Saul a message through Slack (http://baizman.com/iwd).
-
--->
-
 <!DOCTYPE html>
 <html>
     
@@ -41,22 +6,80 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>GETTING STARTED WITH BRACKETS</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
+        <script src="RandomFruit.js"></script>
         <!-- <link rel="stylesheet" href="main.css"> -->
     </head>
+
     <body>
+
+
+
+
+<!-- 10 -->
+
+        <script type="text/javascript">
+
+
+        document.body.style.backgroundColor = "yellow";
         
+        </script>
+
+<!-- /10 -->
+
+
+
+
+<!-- 11 -->
+       
+        <script type="text/javascript">
+
+        function gettingStarted () {
+        alert("url  ="+window.location.href);
+        }
+
+        </script>
+
+<!-- /11 -->
+
+
+
         <h1>GETTING STARTED WITH BRACKETS</h1>
         <h2>This is your guide!</h2>
-        
-        <!--
-            MADE WITH <3 AND JAVASCRIPT
-        -->
-<!-- 
-        03) On the line that says "Brackets has many users!", replace "many" (just delete the word) with a JavaScript snippet that multiples 10,000 by 10,000 and divides the sum by 5 and outputs the result.   -->
-        
-        <p>Brackets has 
+
+
+
+<!-- 12 -->
+        <script type="text/javascript">
+
+        randomFruit (0);
+
+        </script>
+
+<!-- /12 -->
+
+
+
+<!-- 07 & 08 -->
+
+        <script type="text/javascript">
+
+        function printHeader (x) { 
+            
+            var message = x.toUpperCase();
+
+            document.write(message) ;
+         }
+
+        </script>
+
+<!-- /07 & /08-->
+
+
+
 
 <!-- 03 -->
+
+<p>Brackets has
         
         <script type="text/javascript">
 
@@ -69,11 +92,17 @@ If you have any questions, please send Saul a message through Slack (http://baiz
 
 <!-- /03 -->
 
+
+
+
         users!</p> 
 
         </p>
         <p>
-            Welcome to Brackets, a modern open-source code editor that understands web design. It's a lightweight, 
+            Welcome to 
+
+<!-- link for 11 -->
+            <a href="javascript:gettingStarted();">Brackets</a>, a modern open-source code editor that understands web design. It's a lightweight, 
             yet powerful, code editor that blends visual tools into the editor so you get the right amount of help 
             when you want it.
         </p>
@@ -94,7 +123,13 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             GET STARTED WITH YOUR OWN FILES
         -->
         
-        <h3>Projects in Brackets</h3>
+                
+        <h3><script type="text/javascript">
+        
+        printHeader ( 'Projects in Brackets' ) ;
+
+        </script></h3>
+
         <p>
             In order to edit your own code using Brackets, you can just open the folder containing your files.
             Brackets treats the currently open folder as a "project"; features like Code Hints, Live Preview and
@@ -113,7 +148,13 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         <!--
             THE RELATIONSHIP BETWEEN HTML, CSS AND JAVASCRIPT
         -->
-        <h3>Quick Edit for CSS and JavaScript</h3>
+        
+        <h3><script type="text/javascript">
+
+        printHeader ( 'Quick Edit for CSS and JavaScript' ) ;
+
+        </script></h3>
+       
         <p>
             No more switching between documents and losing your context. When editing HTML, use the
             <kbd>Cmd/Ctrl + E</kbd> shortcut to open a quick inline editor that displays all the related CSS.
@@ -123,7 +164,29 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             SCSS files, including nested rules.
         </p>
 
-        <samp id="papaya">
+        <p id="papaya">demo</p>
+
+
+
+
+<!-- 09 -->
+
+        <script type="text/javascript">
+        
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        var windowSize = "Width: " + w + "<br>Height: " + h + "<br /><br />";
+       
+        document.write(windowSize) ;
+
+        </script>
+
+<!-- /09 -->
+
+
+
+
+        <samp>
             Want to see it in action? Place your cursor on the <!-- <samp> --> tag above and press
             <kbd>Cmd/Ctrl + E</kbd>. You should see a CSS quick editor appear above, showing the CSS rule that
             applies to it. Quick Edit works in class and id attributes as well. You can use it with your
@@ -146,7 +209,13 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         <!--
             LIVE PREVIEW
         -->
-        <h3>Preview HTML and CSS changes live in the browser</h3>
+       
+        <h3><script type="text/javascript">
+
+        printHeader ( 'Preview HTML and CSS changes live in the browser') ;
+
+        </script></h3>
+
         <p>
             You know that "save/reload dance" we've been doing for years? The one where you make changes in
             your editor, hit save, switch to the browser and then refresh to finally see the result?
@@ -159,14 +228,21 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             browser, but lives in your editor!
         </p>
         
-        <h3>Live Highlight HTML elements and CSS rules</h3>
+                <h3><script type="text/javascript">
+
+        printHeader ( 'Live Highlight HTML elements and CSS rules') ;
+
+        </script></h3>
+
         <p>
             Brackets makes it easy to see how your changes in HTML and CSS will affect the page. When your cursor
             is on a CSS rule, Brackets will highlight all affected elements in the browser. Similarly, when editing
             an HTML file, Brackets will highlight the corresponding HTML elements in the browser.
         </p>
         
-        <samp id= "kumquat">
+        <p id="kumquat">demo</p>
+
+            <samp>
             If you have Google Chrome installed, you can try this out yourself. Click on the lightning bolt 
             icon in the top right corner of your Brackets window or hit <kbd>Cmd/Ctrl + Alt + P</kbd>. When
             Live Preview is enabled on an HTML document, all linked CSS documents can be edited in real-time.
@@ -186,7 +262,14 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             to bring this functionality to all major browsers in the future.
         </p>
         
-        <h3 id="qv">Quick View</h3>
+        <h3 id="qv"><script type="text/javascript">
+
+        printHeader ( 'Quick View' ) ;
+
+        </script></h3>
+
+
+
         
 <!-- 05 -->
 
@@ -197,6 +280,9 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         </script>
 
 <!-- /05 -->
+
+
+
 
         <p>
             For those of us who haven't yet memorized the color equivalents for HEX or RGB values, Brackets makes
@@ -214,8 +300,15 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             preview, place your cursor over the screenshot image included earlier in this document.
         </samp>
         
-        <h3 id="extension">Need something else? Try an extension!</h3>
-       
+        <h3 id="extension"><script type="text/javascript">
+
+        printHeader ( 'Need something else? Try an extension!') ;
+
+        </script></h3>
+
+
+
+
 <!-- 04 -->
 
         <script type="text/javascript">
@@ -226,6 +319,9 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         </script>
 
 <!-- /04 -->
+
+
+
 
         <p>
             In addition to all the goodness that's built into Brackets, our large and growing community of
@@ -242,6 +338,9 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         <h2 id= "myDate">Get involved
 
 
+
+
+
 <!-- 02 --> 
 
         <script type="text/javascript">
@@ -254,6 +353,9 @@ If you have any questions, please send Saul a message through Slack (http://baiz
 
 <!-- /02 -->
 
+
+
+
         </h2>
         
         <p>
@@ -261,6 +363,9 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             a better code editor. Many more are building extensions that expand the capabilities of Brackets.
             Let us know what you think, share your ideas or contribute directly to the project.
         </p>
+
+
+
 
 <!-- 01 -->
 
@@ -273,6 +378,9 @@ If you have any questions, please send Saul a message through Slack (http://baiz
 <!-- /01 -->
 
 
+
+
+
         <ul>
             <li><a href="http://brackets.io">Brackets.io</a></li>
             <li><a href="http://blog.brackets.io">Brackets Team Blog</a></li>
@@ -283,7 +391,8 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             <li><a href="https://twitter.com/brackets">@brackets on Twitter</a></li>
             <li>Chat with Brackets developers on IRC in <a href="http://webchat.freenode.net/?channels=brackets&uio=d4">#brackets on Freenode</a></li>
         </ul>
-        
+
+
 
 <!-- 06 -->
 
@@ -307,13 +416,8 @@ If you have any questions, please send Saul a message through Slack (http://baiz
 
 <!-- /06 -->
 
-<!-- 07 -->
 
-        <script type="text/javascript">
 
-        </script>
-
-<!-- /07 -->
 
     </body>
 </html>
