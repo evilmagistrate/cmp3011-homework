@@ -42,8 +42,42 @@
 
 	<div id="content-wrapper">
 		<div id="content">
+			<fieldset>
+				<legend>Have an article or idea?<br /><span>Login to join the conversation</span></legend>
+			<form action="http://www.ChicagoStyle.com/submit.php" method="post">
+				<div class="contact_info">
+					<p><span class="label">Full Name:</span>
+					<input type="title" name="fullname" />
+				</p>
+				<p><span class="label">Email:</span>
+					<input type="email" name="email"/>
+				</p>
+					</div>
+
+				<div class="login_info">
+					<p><span class="label">Password:</span>
+					<input type="password" name="password" />
+				</p>
+				<p><span class="label">Re-Type Password:</span>
+					<input type="password" name="retype_password"/>
+				</p>
+					</div>
 
 
+				<div class="radio_selection">
+					<p><span class="radio_label">Please select your favorite color:</span>
+					<br /><br />
+					<input type="radio" name="color" value="blue" class="radiocolor" checked="checked" />
+					<span class="radio_label">Blue</span>
+					<input type="radio" name="color" value="green" class="radiocolor" />
+					<span class="radio_label">Green</span>
+					<input type="radio" name="color" value="pink" class="radiocolor" />
+					<span class="radio_label">Pink</span>
+				</p>
+				</div>
+				<input type="submit" name="submit" value="Submit" id="submit"/>
+			</form>
+			</fieldset>
 
 		</div> <!-- /div id=content -->
 	</div> <!-- /div id="content-wrapper"> -->
@@ -54,6 +88,7 @@
 			<a href="http://www.chicagomanualofstyle.org/home.html" class="cmos-footer">The Chicago Manual of Style</a><span class="tldr"> is a registered trademark of The University of Chicago.</span>
 		</span>
 	</footer>
+
 </div>
 </body>
 </html>

@@ -4,3 +4,97 @@
 	float: right;
 	padding: 15px 0 5px 10px;
 }
+
+fieldset {
+	width: 380px;
+	padding: 40px 100px 40px 0px;
+	border: #f3f1ed solid 50px;
+	background-color: #f3f1ed;
+	border-radius: 10px;
+}
+
+legend {
+	font-family: "Times New Roman", Times, Georgia, serif;
+	color: #0bb3d0;
+	font-size: 24pt;
+	padding-top: 30px;
+}
+
+legend span {
+	font-size: 16pt;
+}
+
+.label {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #0bb3d0;
+	float: left;
+	text-align: right;
+	padding-right: 10px;
+	width: 150px;
+}
+
+.login_info>p>input, .contact_info>p>input {
+	width: 200px;
+	border-radius: 4px;
+	color: #626f7f;
+	border: 1px solid #0bb3d0;
+}
+
+.radio_label {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #0bb3d0;
+	float: none;
+	text-align: right;
+	padding-right: 12px;
+}
+
+.radio_selection, #submit {
+	text-align: right;
+}
+
+ .radiocolor {
+	 margin: 5px 5px 5px 10px;
+ }
+ 
+ hr {
+	 color: blue;
+ }
+
+ .contact_info, .login_info {
+	 padding-bottom: 10px;
+	 border-bottom: 1px solid #0bb3d0;
+	 margin: 10px;
+ }
+
+.login_info>p>input:hover, .contact_info>p>input:hover {
+	width: 200px;
+	border-radius: 4px;
+	color: #626f7f;
+	border: 2px solid #0bb3d0;
+	margin: 2px -2px 0px -2px;
+}
+
+.login_info>p>input:focus, .contact_info>p>input:focus {
+	width: 200px;
+	border-radius: 4px;
+	color: #626f7f;
+	border: 2px solid #b4d433;
+	margin: 2px -2px 0px -2px;
+}
+
+#submit {
+	float: right;
+	border: #0bb3d0 1px solid;
+	border-bottom: #0bb3d0 2px solid;
+	color: #0bb3d0;
+	background-color:  white;
+	border-radius: 8px;
+	font-family: "Times New Roman", Times, Georgia, serif;
+	font-size: 16px;
+}
+
+#submit:hover {
+	box-shadow: inset 1px 1px 3px #0bb3d0;
+	border-top: #0bb3d0 2px solid;
+
+}
