@@ -1,7 +1,6 @@
 <html>
 
 <head>
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<title>Chicago Style | A writing blog brought to you by The Chicago Manual of Style</title>
 	<meta name="description" content="Recommendations on editorial style and publishing practices for the digital age" />
 	<meta http-equiv="author" content="Ralph Emrick" />
@@ -9,7 +8,6 @@
 	<meta name="viewport" content="width=device-width">
 	<link href="../03 responsive design/css/style.css" type="text/css" rel="stylesheet" />
 	<link href="style.css" type="text/css" rel="stylesheet" />
-	<script src="regForm.js"></script>
 </head>
 
 <body>
@@ -44,40 +42,46 @@
 		<div id="content">
 			<fieldset>
 				<legend>Have an article or idea?<br /><span>Login to join the conversation</span></legend>
-			<form action="http://www.ChicagoStyle.com/submit.php" method="post">
+			<form name="submission_form" action="" onsubmit="return validateForm()" method="post">
 				<div class="contact_info">
 					<p><span class="label">Full Name:</span>
-					<input type="title" name="fullname" />
+					<input type="title" name="fullname" id="fullname" />
 				</p>
+					<div class="error" id="fullname_error"> </div>
 				<p><span class="label">Email:</span>
-					<input type="email" name="email"/>
+					<input type="email" name="email" id="email" />
 				</p>
+					<div class="error" id="email_error"> </div>
 					</div>
 
 				<div class="login_info">
 					<p><span class="label">Password:</span>
-					<input type="password" name="password" />
+					<input type="password" name="password" id="password" />
 				</p>
+					<div class="error" id="password_error"> </div>
 				<p><span class="label">Re-Type Password:</span>
-					<input type="password" name="retype_password"/>
+					<input type="password" name="retype_password" id="retype_password" />
 				</p>
+					<div class="error" id="retype_password_error"> </div>
 					</div>
 
 
 				<div class="radio_selection">
 					<p><span class="radio_label">Please select your favorite color:</span>
-					<br /><br />
-					<input type="radio" name="color" value="blue" class="radiocolor" checked="checked" />
+					<div id="radio_error"></div>
+					<input type="radio" name="color" value="#0bb3d0" class="radiocolor" checked="checked" id="blue" />
 					<span class="radio_label">Blue</span>
-					<input type="radio" name="color" value="green" class="radiocolor" />
+					<input type="radio" name="color" value="#b4d433" class="radiocolor" id="green" />
 					<span class="radio_label">Green</span>
-					<input type="radio" name="color" value="pink" class="radiocolor" />
+					<input type="radio" name="color" value="#ff0099" class="radiocolor" id="pink" />
 					<span class="radio_label">Pink</span>
 				</p>
 				</div>
 				<input type="submit" name="submit" value="Submit" id="submit"/>
 			</form>
 			</fieldset>
+
+			<div id="result"></div>
 
 		</div> <!-- /div id=content -->
 	</div> <!-- /div id="content-wrapper"> -->
@@ -88,6 +92,7 @@
 			<a href="http://www.chicagomanualofstyle.org/home.html" class="cmos-footer">The Chicago Manual of Style</a><span class="tldr"> is a registered trademark of The University of Chicago.</span>
 		</span>
 	</footer>
+	<script src="regForm.js"></script>
 
 </div>
 </body>

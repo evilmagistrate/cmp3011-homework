@@ -7,7 +7,7 @@
 
 fieldset {
 	width: 380px;
-	padding: 40px 100px 40px 0px;
+	padding: 40px 100px 40px 0;
 	border: #f3f1ed solid 50px;
 	background-color: #f3f1ed;
 	border-radius: 10px;
@@ -97,4 +97,9 @@ legend span {
 	box-shadow: inset 1px 1px 3px #0bb3d0;
 	border-top: #0bb3d0 2px solid;
 
+}
+
+.error {
+	text-align: right;
+	color: red;
 }
