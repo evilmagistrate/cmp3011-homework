@@ -103,3 +103,7 @@ legend span {
 	text-align: right;
 	color: red;
 }
+
+.result {
+	position: relative;
+}
