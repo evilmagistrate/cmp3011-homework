@@ -108,3 +108,14 @@ legend span {
 .result {
 	position: relative;
 }
+
+#radio_error {
+	font-size: 14pt;
+	text-align: center;
+
+}
+
+#radio_selection {
+	text-align: left;
+	margin-left: 15px;
+}
