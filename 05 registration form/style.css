@@ -84,6 +84,7 @@ legend span {
 
 #submit {
 	float: right;
+	margin: 20px 10px 0 0;
 	border: #0bb3d0 1px solid;
 	border-bottom: #0bb3d0 2px solid;
 	color: #0bb3d0;
