@@ -42,7 +42,7 @@
 		<div id="content">
 			<fieldset>
 				<legend>Have an article or idea?<br /><span>Login to join the conversation</span></legend>
-			<form name="submission_form" action="" onsubmit="return validateForm()" method="post">
+			<form name="submission_form" action="" method="post">
 				<div class="contact_info">
 					<p><span class="label">Full Name:</span>
 					<input type="title" name="fullname" id="fullname" />
@@ -80,7 +80,7 @@
 					<input type="radio" name="color" value="#000" class="radiocolor" id="black" />
 					<span class="radio_label">Black</span>
 				</div>
-				<input type="submit" name="submit" value="Submit" id="submit"/>
+				<input type="button" name="submit" value="register" id="submit" onclick="return validateForm()"/>
 			</form>
 			</fieldset>
 
