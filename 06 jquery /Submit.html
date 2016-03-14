@@ -1,0 +1,106 @@
+<html>
+
+<head>
+	<title>Chicago Style | A writing blog brought to you by The Chicago Manual of Style</title>
+	<meta name="description" content="Recommendations on editorial style and publishing practices for the digital age" />
+	<meta http-equiv="author" content="Ralph Emrick" />
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width">
+	<link href="../03 responsive design/css/style.css" type="text/css" rel="stylesheet" />
+	<link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="page">
+	<header id="top">
+
+		<div id="banner">
+			<a href="index.html" class="headline">Chicago <span>Style</span></a>
+
+			<nav class="primary-nav">
+				<ul>
+					<li><a href="index.html">most recent</a></li>
+					<li><a href="archive.html">archive</a></li>
+					<li><a href="submit.html" class="current">submit</a></li>
+					<li><a href="rss">rss</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<nav id="social-external-nav">
+			<a href="http://www.chicagomanualofstyle.org/home.html" class="CMOS"><img src="../03 responsive design/images/logo.jpg" alt="Link to the Chicago Manual of Style Official Website"></a>
+			<div class="search">
+				<span class="icon"><i class="fa fa-search"></i></span>
+				<input type="search" id="search" placeholder="Search..." />
+			</div>
+			<a href="https://www.facebook.com/ChicagoManual/" class= "sprite-social-05"><img src="../03 responsive design/images/fb-twitter.gif" alt="placeholder for social media"></a>
+
+		</nav>
+	</header>
+
+	<div id="content-wrapper">
+		<div id="content">
+			<fieldset>
+				<legend>Have an article or idea?<br /><span>Login to join the conversation</span></legend>
+			<form name="submission_form" id="submissionForm" action="" method="post">
+				<div class="contact_info">
+					<p><span class="label">Full Name:</span>
+					<input type="title" name="fullname" id="fullname"/>
+				</p>
+					<div class="error" id="fullname_error"> </div>
+				<p><span class="label">Email:</span>
+					<input type="email" name="email" id="email" />
+				</p>
+					<div class="error" id="email_error"> </div>
+					</div>
+
+				<div class="login_info">
+					<p><span class="label">Password:</span>
+					<input type="password" name="password" id="password" />
+				</p>
+					<div class="error" id="password_error"> </div>
+				<p><span class="label">Re-Type Password:</span>
+					<input type="password" name="retype_password" id="retype_password" />
+				</p>
+					<div class="error" id="retype_password_error"> </div>
+					</div>
+
+
+				<div class="radio_selection" id="radio_selection">
+					<div id="radio_error" class="error"></div>
+
+					<p><span class="radio_label">Please select your favorite color:</span></p>
+
+					<input type="radio" name="color" value="#0bb3d0" class="radiocolor"  id="blue" />
+					<span class="radio_label">Blue</span>
+					<input type="radio" name="color" value="#b4d433" class="radiocolor" id="green" />
+					<span class="radio_label">Green</span>
+					<input type="radio" name="color" value="#ff0099" class="radiocolor" id="pink" />
+					<span class="radio_label">Pink</span>
+					<input type="radio" name="color" value="#000" class="radiocolor" id="black" />
+					<span class="radio_label">Black</span>
+				</div>
+				<input type="submit" name="submit" value="register" id="submit"/>
+			</form>
+			</fieldset>
+
+			<div id="result"> </div>
+
+		</div> <!-- /div id=content -->
+	</div> <!-- /div id="content-wrapper"> -->
+
+	<footer>
+		<a href="#top" class="return">Return to Top</a>
+		<span id="copyright">&copy; 2016 <span class="tldr">by The University of Chicago.</span>
+			<a href="http://www.chicagomanualofstyle.org/home.html" class="cmos-footer">The Chicago Manual of Style</a><span class="tldr"> is a registered trademark of The University of Chicago.</span>
+		</span>
+	</footer>
+</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script>
+	<script src="jquery.js" type="text/javascript"></script>
+
+</body>
+</html>
