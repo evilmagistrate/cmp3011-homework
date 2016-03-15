@@ -100,7 +100,12 @@ legend span {
 
 }
 
-input.error {
+.error {
 	color: red;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: right;
+}
+
+.outline {
 	border: 2px solid red;
 }
