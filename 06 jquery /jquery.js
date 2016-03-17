@@ -1,93 +1,144 @@
 $().ready(function() {
 
+    function checkLength ( fieldValue, minimumCharacterLength ) {
 
-    $.validator.addMethod("alphaNumeric", function(value, element) {
-        return this.optional(element) || /^.*(?=.*\d)(?=.*[a-zA-Z]).*$/.test(value);
-    }, "Username must contain a number");
+        if ( fieldValue.length < minimumCharacterLength ) {
+            return false ;
+        }
 
+        return true ;
 
-    $('#submissionForm').validate ( {
+    }
 
-        onkeyup: false,
+    $("#submit").on("click", function()  {
 
-        onfocusout: false,
+        var valid = true;
 
-        highlight: function(element, outline) {
-            $(element).addClass(outline);
-            $(element.form).find("label[for=" + element.id + "]")
-                .addClass(outline);
-        },
+        var $fullName = $('#fullname');
+        var $email = $('#email');
+        var $password = $('#password');
+        var $retypePassword = $('#retype_password');
 
-        unhighlight: function(element, outline) {
-            $(element).removeClass(outline);
-            $(element.form).find("label[for=" + element.id + "]")
-                .removeClass(outline);
-        },
+        var $fullNameError = $('#fullname_error').text("Must be more than 2 characters long");
+        var $emailError = $('#email_error').text("Must be longer than 5 characters");
+        var $passwordError = $('#password_error').text("Must be more than 10 characters long and contain a number");
+        var $retypePasswordError = $('#retype_password_error').text("Password does not match");
+        var $colorPasswordError = $('#radio_label_error').text("You must pick one");
 
-        rules: {
-            fullname: {
-                required: true,
-                minlength: 3
-                },
-
-                email: {
-                    required: true,
-                    minlength: 6,
-                    email: true
-                },
-
-                password: {
-                    required: true,
-                    minlength: 10,
-                    alphaNumeric: true
-                },
-
-                retype_password: {
-                    required: true,
-                    equalTo: '#password'
-                },
-
-                color: {
-                    required: true
-                }
-            },
-
-            messages: {
-                fullname: {
-                    required: "Please enter your full name",
-                    minlength: "Must be more than 2 characters long"
-
-                },
-
-                email: {
-                    required: "Please enter your email",
-                    minlength: "Must be more than 5 characters long",
-                    email: "Must be a valid email address"
-                },
-
-                password: {
-                    required: "Please enter your password",
-                    minlength: "Must be more than 10 characters long",
-                    alphaNumeric: "Must contain a number"
-                },
-
-                retype_password: {
-                    required: "Please retype the password above",
-                    equalTo: "Passwords do not match"
-                },
-
-                color: {
-                    required: "Please select your favorite color"
-                }
-
-            },
-
-            errorPlacement: function (error, element) {
-            var name = $(element).attr("name");
-            error.appendTo($("#" + name + "_error"));
-
-            }
+        var alphaNumeric = /^.*(?=.*\d)(?=.*[a-zA-Z]).*$/;
 
 
-        });
+        if (! checkLength($fullName.val, 2)) {
+            console.log("fullname: error");
+            $fullName.addClass("error");
+            $fullNameError.show();
+
+            valid = false;
+        }
+
+        else {
+            $fullName.removeClass("error");
+            $fullNameError.hide();
+
+        }
+
+// email
+
+        if (! checkLength($email.val, 5)) {
+            console.log("email: error");
+            $email.addClass("error");
+            $emailError.show();
+
+            valid = false;
+        }
+
+        else {
+            $email.removeClass("error");
+            $emailError.hide();
+        }
+
+
+//// password length
+//
+//        if (checkLength(password.value, 10)) {
+//            console.log("password length: error");
+//            document.getElementById('password_error').textContent = $passwordErrorMessage;
+//            valid = false;
+//        }
+//
+//        else {
+//            document.getElementById('password_error').textContent = "";
+//            document.getElementById('password').style.border = "";
+//            valid = true;
+//
+//        }
+//
+//
+//// password alphanumeric
+//
+//        var passwordMatches = true;
+//
+//        if (valid) {
+//
+//            if (alphaNumeric.test(password)) {
+//                console.log("password alpha: error");
+//                document.getElementById('password_error').textContent = $passwordErrorMessage;
+//                valid = false;
+//                passwordMatches = false;
+//            }
+//
+//            else {
+//                document.getElementById('password_error').textContent = "";
+//                document.getElementById('password').style.border = "";
+//                passwordMatches = true;
+//
+//            }
+//        }
+//
+//// retype password
+//
+//        if (passwordMatches) {
+//            if (retypePassword !== password) {
+//                console.log("retype password: error");
+//                document.getElementById('retype_password_error').textContent = retypePasswordErrorMessage;
+//                valid = false;
+//            }
+//
+//            else {
+//                document.getElementById('password_error').textContent = "";
+//                document.getElementById('password').style.border = "";
+//            }
+//        }
+//
+//
+//// radio button
+//
+//        var colorSelected = false;
+//
+//
+//        for (var button = 0; button < radioColor.length; button++) {
+//            if (radioColor[button].checked) {
+//                radioSelectedColor = radioColor[button].value;
+//                colorSelected = true;
+//            }
+//        }
+//
+//        if (! colorSelected) {
+//            document.getElementById('radio_error').textContent = "Please make a selection";
+//            valid = false;
+//        }
+//
+//        else {
+//            document.getElementById('radio_selection').style.border = "";
+//            document.getElementById('radio_error').textContent = "";
+//        }
+//
+//        if (valid) {
+//            console.log("submission complete");
+//            document.getElementById('result').textContent = "<h1>Thank you for joining, <br />" + fullName + "! <h1> <p>Please remember your log-in information for future discussions. <br />" + email + "<br />" + password + "</p>";
+//
+//            document.body.style.backgroundColor = radioSelectedColor ;
+//        }
+//
+    });
 });
