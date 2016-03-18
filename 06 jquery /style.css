@@ -102,11 +102,23 @@ legend span {
 
 .error {
 	color: red;
+	padding-left: 160px;
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 10pt;
-	margin: 2px -2px 0px -2px;
+	font-size: 8pt;
+	margin: 2px -2px 0 -2px;
 }
 
-input.outline {
-	border: 2px solid red;
+.outline {
+	border: 2px solid red !important;
+	background-color: pink;
+}
+
+.result {
+	padding: 25px;
+	margin: 25px;
+	background-color: #f3f1ed;
+	font-size: 10pt;
+	font-family: Verdana, Geneva, sans-serif;
+	border-radius: 10px;
+
 }

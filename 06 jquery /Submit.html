@@ -40,6 +40,9 @@
 
 	<div id="content-wrapper">
 		<div id="content">
+
+			<div id="result"> </div>
+
 			<fieldset>
 				<legend>Have an article or idea?<br /><span>Login to join the conversation</span></legend>
 			<form name="submission_form" id="submissionForm" action="" method="post">
@@ -67,7 +70,7 @@
 				<div class="radio_selection" id="radio_selection">
 
 					<p><span class="radio_label">Please select your favorite color:</span>
-					<div id="radio_label_error" class="error"> </div></p>
+					</p>
 
 					<input type="radio" name="color" value="#0bb3d0" class="radiocolor"  id="blue" />
 					<span class="radio_label">Blue</span>
@@ -78,11 +81,11 @@
 					<input type="radio" name="color" value="#000" class="radiocolor" id="black" />
 					<span class="radio_label">Black</span>
 				</div>
+				<div id="radio_label_error" class="error"> </div>
+
 				<input type="button" name="submit" value="register" id="submit"/>
 			</form>
 			</fieldset>
-
-			<div id="result"> </div>
 
 		</div> <!-- /div id=content -->
 	</div> <!-- /div id="content-wrapper"> -->
