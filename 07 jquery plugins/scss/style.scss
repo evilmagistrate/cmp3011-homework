@@ -1,0 +1,1040 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700italic);
+
+//declaration of variables//
+
+$color-text: #626f7f;
+$color-pink: #ff0099;
+$color-blue: #0bb3d0;
+$color-green: #b4d433;
+$color-background: #f3f1ed;
+$color-border: #84b8c6;
+
+$font-headline: 'Droid Serif', Times, serif;
+$font-serif: "Times New Roman", Times, Georgia, serif;
+$font-sans: Verdana, Geneva, sans-serif;
+
+$font-default: 95%;
+
+$width-tiny: 375px;
+$width-small: 667px;
+$width-medium: 1024px;
+$width-large: 1366px;
+
+
+//the magic's in the mixins//
+
+@mixin transition($property, $time, $type, $delay) {
+  -webkit-transition: $property $time $type $delay;
+  -moz-transition: $property $time $type $delay;
+  -o-transition: $property $time $type $delay;
+  transition: $property $time $type $delay;
+}
+
+@mixin flex-box {
+  display: flex;
+  align-content: center;
+}
+
+@mixin hidden-pipes {
+  position: relative;
+  overflow: hidden;
+  margin: -10px 1em 1em 9.8%;
+}
+
+@mixin uppercase-sans {
+  display: inline;
+  font: {
+    family: Verdana, Geneva, sans-serif;
+    size: 80%; }
+  text-transform: uppercase;
+  color: $color-text;
+}
+
+@mixin responsive($width) {
+  @if $width == wide-screens {
+    @media only screen and (max-width: $width-large)
+    { @content; }
+  }
+  @else if $width == medium-screens {
+    @media only screen and (max-width: $width-medium)
+    { @content; }
+  }
+  @else if $width == small-screens {
+    @media only screen and (max-width: $width-small)
+    { @content; }
+  }
+
+  @else if $width == tiny-screens {
+    @media only screen and (max-width: $width-tiny)
+    { @content; }
+  }
+}
+
+/* the whole enchilada */
+
+body {
+  font: {
+    family: $font-serif;
+    size: $font-default;
+  }
+  color: $color-text;
+  background-color: $color-background;
+}
+
+#content-wrapper {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $color-text;
+
+  &:hover, &.current {
+    color: $color-pink;
+  }
+
+  &:active, &:visited {
+    color: darken($color-blue, 10%);
+  }
+
+  &.social {
+    height: 43px;
+    background-image: url("images/fb-twitter.gif");
+    text-indent: -9999px;
+    display: inline-block;
+  }
+
+  &#readmore {
+    background-image: url("images/read-more-off.jpg");
+    text-indent: -9999px;
+    position: relative;
+    height: 9px;
+    width: 75px;
+    background-position: 0 0;
+
+    &:hover {
+      background-image: url("images/read-more-off.jpg");
+      text-indent: -9999px;
+      display: inline-block;
+      height: 9px;
+      width: 75px;
+      background-position: -77px 0;
+      float: right;
+    }
+  }
+}
+
+/* header */
+
+header {
+  margin-top: -10px;
+  margin-left:-10px;
+  margin-right: -10px;
+  margin-bottom: 28px;
+  background-color: #fff;
+  width: 105%;
+  height: 160px;
+  left: -1px;
+  border-bottom: solid 4pt $color-border;
+  z-index: 9;
+
+  @include responsive(medium-screens) {
+    min-width: 118%;
+  }
+
+  @include responsive(small-screens) {
+  max-height: 128px;
+  min-width: 151%;
+  }
+
+  @include responsive(tiny-screens) {
+    min-height: 280px;
+    min-width: 230%;
+  }
+}
+
+#banner {
+  width: 500px;
+  height: 100px;
+  padding: 30px 10px 15px 95px;
+
+  @include responsive(small-screens) {
+  max-width: 100%;
+  padding: 20px 10px 10px 35px;
+  }
+
+  @include responsive(tiny-screens) {
+    padding: 30px 10px 10px 35px;
+  }
+}
+
+.headline {
+  font: {
+    family: $font-headline;
+    weight: bold;
+    style: italic;
+    size: 45pt;
+  }
+  color: $color-blue;
+  position: relative;
+
+  & span {
+    color: $color-green;
+  }
+
+  &:hover {
+    color: $color-blue;
+  }
+
+  &:visited {
+    color: $color-blue;
+  }
+
+  @include responsive(tiny-screens) {
+    font-size: 54pt;
+  }
+}
+
+.primary-nav {
+
+  @include hidden-pipes;
+  position: relative;
+  left: -52px;
+  width: 100%;
+
+  @include responsive(small-screens) {
+    position: absolute;
+    top: 115px;
+    left: -10%;
+    width: 148%;
+    max-height: 60px;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: $color-border;
+  }
+
+  @include responsive(tiny-screens) {
+    width: 220%;
+    max-height: 160px;
+    top: 140px;
+  }
+
+  & ul {
+    margin-left: -3px;
+    padding: 0;
+
+    @include responsive(small-screens) {
+      margin-left: 30px;
+      padding: 5px 0 0 0;
+    }
+
+    @include responsive(tiny-screens) {
+      margin-left: 30px;
+      padding: 100px 0 0 0;
+    }
+  }
+
+  & li {
+    @include uppercase-sans;
+    border-left: 2px solid #b4d433;
+    flex-grow: 1;
+    flex-basis: auto;
+    margin: .25em 0;
+    padding: 2px 6px 2px 6px;
+    text-align: center;
+    @include transition (all, 1s, ease, .3s);
+
+    @include responsive(small-screens) {
+      border: none;
+      color: #fff;
+      font-size: 120%;
+      font-weight: bolder;
+      padding: 2px 12px 2px 12px;
+    }
+
+    @include responsive(tiny-screens) {
+      font-size: 160%;
+      font-weight: bolder;
+      padding: 2px 12px 2px 12px;
+    }
+  }
+
+    & a {
+      @include transition (all, 1s, ease, 0s);
+
+      &:visited {
+        color: $color-text;
+      }
+    }
+
+    & a:hover {
+      background-color: $color-green;
+      @include transition (all, 1s, ease, 0s);
+      margin: 5px;
+      padding: 5px;
+      color: #fff;
+    }
+  }
+
+#social-external-nav {
+  position: absolute;
+  right: 10%;
+  top: 42px;
+
+  @include responsive(small-screens) {
+    right: -40%;
+    top: 10px;
+  }
+
+  @include responsive(tiny-screens) {
+    right: -398px;
+    top: 10px;
+  }
+}
+
+.search {
+
+  @include responsive(wide-screens) {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+
+  @include responsive(small-screens) {
+    visibility: visible;
+    width: 250px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    top: 46px;
+    right: 50px;
+
+    @include responsive(tiny-screens) {
+    position: absolute;
+    top: 150px;
+    right: 482px;
+    height: 50px;
+    }
+
+    & .icon {
+      position: absolute;
+      margin-left: 14px;
+      margin-top: 4px;
+      z-index: 1;
+      color: $color-text;
+      font-size: 20pt;
+
+      @include responsive(tiny-screens) {
+      font-size: 32pt;
+      margin-left: 22px;
+      }
+    }
+
+    & input#search {
+
+      @include responsive(small-screens) {
+        width: 50px;
+        height: 35px;
+        background: $color-background;
+        border: none;
+        font-size: 10pt;
+        float: left;
+        padding-left: 45px;
+
+        -webkit-transition: background .55s ease;
+        -moz-transition: background .55s ease;
+        -o-transition: background .55s ease;
+        transition: background .55s ease;
+
+        @include responsive(tiny-screens) {
+          width: 40px;
+          height: 50px;
+          padding-left: 80px;
+          font-size: 16pt;
+        }
+
+        &:focus, &:active {
+          outline: none;
+          width: 300px;
+          background-color: $color-background;
+
+          @include responsive(tiny-screens) {
+            width: 480px;
+          }
+        }
+      }
+    }
+  }
+}
+
+  .CMOS {
+    float: right;
+
+    @include responsive(small-screens) {
+      position: absolute;
+      right: 5px;
+      top: 15px;
+    }
+
+      @include responsive(tiny-screens) {
+        visibility: hidden;
+      }
+  }
+
+  #social-fb, #social-twitter {
+    float: right;
+    margin-top: 16px;
+
+    @include responsive(small-screens) {
+      top: 84px;
+      right: 8px;
+    }
+
+    @include responsive(tiny-screens) {
+      right: -8px;
+      top: 210px;
+    }
+  }
+
+  a#social-fb {
+    clear: right;
+    width: 45px;
+    background-position: 0 0;
+    margin-left: -10px;
+
+    @include responsive (small-screens) {
+      background-image: url(images/mobile-fb.gif);
+      opacity: 0.6;
+      margin-left: 8px;
+    }
+  }
+
+  a#social-twitter {
+    width: 45px;
+    background-position: -45px 0;
+
+    @include responsive (small-screens) {
+      background-image: url(images/mobile-twitter.gif);
+      opacity: 0.6;
+      right: 50px;
+    }
+  }
+
+  /* content */
+
+  .date, .article-date {
+    @include uppercase-sans;
+    font-style: italic;
+
+    @include responsive (small-screens) {
+      font-size: 10pt;
+    }
+
+    @include responsive (tiny-screens) {
+      font-size: 20pt;
+    }
+
+  }
+
+  #content {
+    box-sizing: border-box;
+    margin: auto 0 auto 8.6%;
+    padding: 0 0 90px 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @include responsive (small-screens) {
+      margin-top: 8%;
+      justify-content: center;
+      flex-direction: column;
+      width: 667px;
+    }
+  }
+
+  .copy {
+    background-color: #fff;
+    padding: 12px;
+
+    @include responsive (medium-screens) {
+      padding: 32px 32px 26px 32px;
+      width: 100%;
+    }
+
+    @include responsive(small-screens) {
+      padding: 25px;
+    }
+  }
+
+  article {
+    max-width: 321px;
+    max-height: 324px;
+    display: inline-block;
+    padding: 10px 0 40px 0;
+    vertical-align: top;
+    margin: 10px;
+
+    @include responsive (medium-screens) {
+      flex-grow: 1;
+      vertical-align: top;
+      justify-content: space-around;
+      max-width: 270px;
+      max-height: 280px;
+      display: inline-block;
+      margin: 0 45px -10 45px;
+    }
+
+    @include responsive(small-screens) {
+      max-width: 100%;
+      max-height: 300px;
+      padding: 10px 0 30px 0;
+      margin: 0 0 10px 40px;
+    }
+
+    @include responsive(tiny-screens) {
+      margin-top: 20px;
+    }
+  }
+
+  img.thumb {
+    height: 138px;
+    width: 321px;
+
+    @include responsive (medium-screens) {
+      visibility: hidden;
+      height: 1px;
+      width: 1px;
+    }
+  }
+
+  p.excerpt {
+    height: 120px;
+    max-width: 320px;
+    padding: 5px 15px 10px 15px;
+
+    @include responsive (medium-screens) {
+      max-width: 560px;
+      padding: 5px 15px 10px 10px;
+    }
+
+    @include responsive (small-screens) {
+      font-size: 16pt;
+      line-height: 1.2em;
+      max-width: 100%;
+      padding: 5px 16px 20px 10px;
+    }
+
+    @include responsive (tiny-screens) {
+      font-size: 22pt;
+      line-height: 1em;
+    }
+
+    .article1 & {
+      height: 95px;
+
+      @include responsive (medium-screens) {
+        height: 86px;
+      }
+
+      @include responsive (small-screens) {
+        height: 100px;
+      }
+    }
+  }
+
+
+  .title {
+    font: {
+      size: 20pt;
+      weight: bold;
+    }
+    line-height: 1em;
+    max-width: 300px;
+    color: $color-blue;
+
+    @include responsive (medium-screens) {
+      font-size: 24pt;
+    }
+
+    @include responsive (small-screens) {
+      font-size: 28pt;
+      line-height: 1.3em;
+    }
+
+    @include responsive (tiny-screens) {
+      font-size: 40pt;
+      line-height: 1em;
+    }
+  }
+
+  #readmore {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    @include responsive (small-screens) {
+      bottom: 40px;
+      right: 15px;
+    }
+  }
+
+  a {
+
+    &#readmore {
+      background-image: url("images/read-more-off.jpg");
+      text-indent: -9999px;
+      position: relative;
+      height: 9px;
+      width: 75px;
+      background-position: 0 0;
+      float: right;
+
+      @include responsive (small-screens) {
+        background-image: url("images/read-more-mobile.png");
+        position: relative;
+        height: 50px;
+        width: 164px;
+        float: right;
+      }
+
+    }
+
+    &#readmore:hover {
+      background-image: url("images/read-more-off.jpg");
+      text-indent: -9999px;
+      display: inline-block;
+      height: 9px;
+      width: 75px;
+      background-position: -77px 0;
+      float: right;
+
+      @include responsive (small-screens) {
+        background-image: url("images/read-more-mobile.png");
+        position: relative;
+        height: 50px;
+        width: 164px;
+        float: right;
+        background-position: 0px 0;
+      }
+    }
+  }
+
+  /* footer */
+
+  footer {
+    position: fixed;
+    bottom: -1px;
+    z-index: 9;
+    background-color: #fff;
+    height: 40px;
+    width: 101%;
+    left: -1px;
+    right: -1px;
+    border-top: solid 4pt $color-border;
+  }
+
+  a.return {
+    float: left;
+    margin-top: 10px;
+    margin-left: 125px;
+
+    @include responsive(medium-screens) {
+      margin-left: 90px;
+    }
+
+    @include responsive(small-screens) {
+      @include uppercase-sans;
+      margin-top: 4.5px;
+      font-size: 18px;
+      margin-left: 4.5%;
+      font-weight: bold;
+    }
+
+    @include responsive(tiny-screens) {
+      margin-left: 4.5%;
+    }
+  }
+
+  #copyright {
+    float: right;
+    margin-top: 10px;
+    margin-right: 19%;
+    font-size: 10pt;
+    color: lighten($color-text, 25%);
+
+    @include responsive(medium-screens) {
+      margin-right: 11%;
+    }
+
+    @include responsive(small-screens) {
+      font-size: 16px;
+      margin-top: 8px;
+      margin-right: 60px;
+      color: $color-text;
+    }
+
+    @include responsive(tiny-screens) {
+      margin-right: 10%;
+    }
+  }
+
+  /* blog page */
+
+  .article-header {
+    height: 60px;
+    margin-bottom: 40px;
+
+    @include responsive(small-screens) {
+      height: 100px;
+    }
+  }
+
+  .article-title {
+
+    font: {
+      size: 30pt;
+      weight: bold;
+    }
+
+    line-height: 1em;
+    color: $color-blue;
+    margin-bottom: 10px;
+    margin-left: -5px;
+
+    @include responsive(medium-screens) {
+      font-size: 28pt;
+      margin-bottom: 6px;
+    }
+
+    @include responsive(small-screens) {
+      font-size: 42pt;
+      margin-bottom: 6px;
+    }
+
+    @include responsive(tiny-screens) {
+      font-size: 56pt;
+      margin-bottom: 14px;
+    }
+  }
+
+  .blog-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0 20px 36px;
+
+    @include responsive(medium-screens) {
+      max-width: 32%;
+      height: auto;
+      margin: 20px 0 20px 36px;
+    }
+
+    @include responsive (small-screens) {
+    position: relative;
+    max-width: 300%;
+    margin: 25px 0 20px 12px;
+    }
+
+    @include responsive (tiny-screens) {
+      width: 666px;
+      padding: 80px 0 14px 0;
+      margin-left: -2px;
+    }
+  }
+
+  .column1, .column2 {
+    float: left;
+    width: 35%;
+
+    @include responsive (medium-screens) {
+      float: left;
+      width: 32%;
+    }
+
+    @include responsive (small-screens) {
+      width: 80%;
+    }
+
+    @include responsive (tiny-screens) {
+      width: 100%;
+    }
+  }
+
+  .column2 {
+    margin: 10px 10px 10px 33px;
+
+    @include responsive (small-screens) {
+      margin: 0;
+    }
+  }
+
+  aside {
+    position: absolute;
+    top: 400px;
+    right: -35px;
+
+    @include responsive(medium-screens) {
+      position: absolute;
+      top: -252px;
+      right: 40px;
+    }
+
+    @include responsive(small-screens) {
+      position: absolute;
+      top: -252px;
+      right: -220px;
+    }
+
+    @include responsive(tiny-screens) {
+      visibility: hidden;
+    }
+  }
+
+  .related-articles, .popular-articles {
+    position: relative;
+    right: 124.5px;
+    top: -211px;
+
+    @include responsive(medium-screens) {
+      top: 440px;
+      right: 1px;
+    }
+
+    @include responsive(small-screens) {
+      top: 428px;
+      right: -50px;
+    }
+  }
+
+  h2 {
+    font: {
+
+      family: "Times New Roman", Times, Georgia, serif;
+      style: italic;
+      weight: bold;
+      size: 16pt;
+    }
+    color: $color-blue;
+    position: relative;
+    left: -26px;
+
+    @include responsive(small-screens) {
+      font-size: 24pt;
+      left: -10px;
+    }
+  }
+
+
+  .side-title {
+    font: {
+      size: 11pt;
+      weight: bold;
+    }
+    color: $color-text;
+    @include transition (all, 1s, linear, 0s);
+
+    @include responsive(small-screens) {
+      font-size: 16pt;
+    }
+  }
+
+  .side-title:hover {
+    color: $color-pink;
+    @include transition (all, .3s, linear, 0s);
+  }
+
+  .side-title span {
+    font: {
+      size: 7pt;
+      style: italic;
+    }
+    text-transform: uppercase;
+    color: $color-text;
+    font-family: Verdana, Geneva, sans-serif;
+    line-height: 1.5em;
+
+    @include responsive(small-screens) {
+      font-size: 11pt;
+
+    }
+  }
+
+  .article-nav {
+    position: relative;
+    padding: 0;
+  }
+
+  li.previous {
+    position: absolute;
+    left: 112px;
+    display: inline-block;
+    background-image: url("images/previous.jpg");
+    text-indent: -9999px;
+    height: 12px;
+    width: 106px;
+    background-position: 0 0;
+    z-index: 2;
+
+    @include responsive(medium-screens) {
+      left: 70px;
+      bottom: 80px;
+    }
+
+    @include responsive(small-screens) {
+      background-image: url("images/previous-mobile.png");
+      height: 50px;
+      width: 235px;
+      left: 20px;
+      bottom: 90px;
+    }
+  }
+
+  li.previous:hover {
+    position: absolute;
+    left: 112px;
+    display: inline-block;
+    background-image: url("images/previous.jpg");
+    text-indent: -9999px;
+    height: 12px;
+    width: 106px;
+    background-position: -106px 0;
+    z-index: 2;
+  }
+
+  li.next {
+    position: absolute;
+    right: 25%;
+    display: inline-block;
+    background-image: url("images/next.jpg");
+    text-indent: -9999px;
+    height: 12px;
+    width: 83.5px;
+    background-position: 0 0;
+    z-index: 2;
+
+    @include responsive(medium-screens) {
+      right: 28%;
+      bottom: 80px;
+    }
+
+    @include responsive(small-screens) {
+      background-image: url("images/next-mobile.png");
+      height: 50px;
+      width: 204px;
+      bottom: 90px;
+      right: -40%;
+    }
+
+    @include responsive(tiny-screens) {
+      right: -105%;
+    }
+  }
+
+  li.next:hover {
+    position: absolute;
+    right: 25%;
+    display: inline-block;
+    background-image: url("images/next.jpg");
+    text-indent: -9999px;
+    height: 12px;
+    width: 83.5px;
+    background-position: -83.5px 0;
+    z-index: 2;
+  }
+
+  .previous-title {
+    position: absolute;
+    bottom: -40px;
+    left: 129px;
+
+    @include responsive(medium-screens) {
+      left: 86px;
+      bottom: 55px;
+    }
+
+    @include responsive(small-screens) {
+      left: 60px;
+      bottom: 60px;
+      font-size: 24pt;
+    }
+  }
+
+  .next-title {
+    position: absolute;
+    bottom: -40px;
+    right: 25.8%;
+
+    @include responsive(medium-screens) {
+      right: 29.2%;
+      bottom: 55px;
+    }
+
+    @include responsive(small-screens) {
+      right: -32%;
+      bottom: 60px;
+      font-size: 24pt;
+    }
+
+    @include responsive(tiny-screens) {
+      right: -91%;
+      bottom: 60px;
+      font-size: 24pt;
+    }
+  }
+
+  h3 > a {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-weight: bold;
+    font-size: 16pt;
+    color: #0bb3d0;
+  }
+
+  // media queries catch-all
+
+  @include responsive(medium-screens) {
+
+    .article9, .extra, .tldr {
+      visibility: hidden;
+      position: absolute;
+    }
+  }
+
+  @include responsive(small-screens) {
+
+    .article9, .extra, .tldr {
+      visibility: hidden;
+      position: absolute;
+    }
+
+    a.current {
+      background-color: $color-background;
+      margin: 8px 6px;
+      padding: 5px 6px 20px 6px;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+
+    .article-main {
+      margin-bottom: 100px;
+    }
+  }
+
+  @include responsive(tiny-screens) {
+
+  .article2 {
+    margin-top: 60px;
+  }
+
+  .article9 {
+    visibility: visible;
+    position: inherit;
+  }
+
+  .article-main {
+    font-size: 24pt;
+  }
+}
