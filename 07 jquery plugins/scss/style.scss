@@ -129,13 +129,12 @@ a {
 
 header {
   margin-top: -10px;
-  margin-left:-10px;
-  margin-right: -10px;
+  left: -1px;
+  right: -1px;
   margin-bottom: 28px;
   background-color: #fff;
   width: 105%;
   height: 160px;
-  left: -1px;
   border-bottom: solid 4pt $color-border;
   z-index: 9;
 
@@ -149,7 +148,7 @@ header {
   }
 
   @include responsive(tiny-screens) {
-    min-height: 280px;
+    min-height: 160px;
     min-width: 230%;
   }
 }
@@ -157,11 +156,11 @@ header {
 #banner {
   width: 500px;
   height: 100px;
-  padding: 30px 10px 15px 95px;
+  padding: 80px 10px 15px 95px;
 
   @include responsive(small-screens) {
   max-width: 100%;
-  padding: 20px 10px 10px 35px;
+  padding: 40px 10px 10px 220px;
   }
 
   //@include responsive(tiny-screens) {
@@ -195,6 +194,7 @@ header {
     font-size: 54pt;
   }
 }
+
 
 //.primary-nav {
 //
@@ -1037,4 +1037,37 @@ header {
   .article-main {
     font-size: 24pt;
   }
+}
+
+
+//STUFF RE: NAVIGATION PLUGIN
+
+.primary-nav {
+
+  font: {
+    size: 200%;
+  }
+
+  margin: 50px;
+
+  & li {
+    padding: 12px 8px 12px 0px;
+    list-style: none;
+  }
+
+}
+
+#handle {
+  font: {
+    family: $font-sans;
+    size: 16pt;
+    weight: bold;
+  }
+  color: $color-blue;
+  height: 80px;
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  border: none;
+  font-size: 24px;
 }
