@@ -22,3 +22,13 @@
 *.map
 
 *.map
+
+.DS_Store
+
+*.xml
+
+06 jquery /.idea/workspace.xml
+
+07 jquery plugins/.idea/workspace.xml
+
+*.xml
