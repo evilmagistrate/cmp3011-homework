@@ -5,10 +5,9 @@
 	<meta name="description" content="Recommendations on editorial style and publishing practices for the digital age" />
 	<meta http-equiv="author" content="Ralph Emrick" />
 	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width">
 	<link href="scss/style.css" type="text/css" rel="stylesheet" />
 	<link href="Formstone/dist/css/navigation.css" rel="stylesheet" />
-	<link href="Formstone/dist/css/themes/light.css" rel="stylesheet" />
-
 
 </head>
 
@@ -16,15 +15,19 @@
 <div id="page">
 	<header id="top">
 
+		<button id="handle">Menu</button>
+
+		<nav class="primary-nav" data-navigation-handle="#handle" data-navigation-content="#content">
+			<ul>
+				<li><a id="mostRecent" href="index.html">most recent</a></li>
+				<li><a id="archive" href="archive.html">archive</a></li>
+				<li><a id="submit" href="../06 jquery/Submit.html">submit</a></li>
+				<li><a id="rss" href="rss">rss</a></li>
+			</ul>
+		</nav>
+
 		<div id="banner">
 			<a href="index.html" class="headline">Chicago <span>Style</span></a>
-
-			<nav class="primary-nav" data-navigation-handle="#handle" data-navigation-content="#content">
-				<a id="mostRecent" href="index.html">most recent</a>
-				<a id="archive" href="archive.html">archive</a>
-				<a id="submit" href="submit.html">submit</a>
-				<a id="rss" href="rss">rss</a>
-			</nav>
 		</div>
 
 		<nav id="social-external-nav">

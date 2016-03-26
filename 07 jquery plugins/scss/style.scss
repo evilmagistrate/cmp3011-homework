@@ -129,12 +129,13 @@ a {
 
 header {
   margin-top: -10px;
-  left: -1px;
-  right: -1px;
+  margin-left:-10px;
+  margin-right: -10px;
   margin-bottom: 28px;
   background-color: #fff;
   width: 105%;
   height: 160px;
+  left: -1px;
   border-bottom: solid 4pt $color-border;
   z-index: 9;
 
@@ -148,6 +149,16 @@ header {
   }
 
   @include responsive(tiny-screens) {
+    margin-top: -10px;
+    left: -1px;
+    right: -1px;
+    margin-bottom: 28px;
+    background-color: #fff;
+    width: 105%;
+    height: 160px;
+    border-bottom: solid 4pt $color-border;
+    z-index: 9;
+
     min-height: 160px;
     min-width: 230%;
   }
@@ -160,12 +171,12 @@ header {
 
   @include responsive(small-screens) {
   max-width: 100%;
-  padding: 40px 10px 10px 220px;
+  padding: 40px 10px 10px 260px;
   }
 
-  //@include responsive(tiny-screens) {
-  //  padding: 30px 10px 10px 35px;
-  //}
+  @include responsive(tiny-screens) {
+    //padding: 30px 10px 10px 35px;
+  }
 }
 
 .headline {
@@ -288,8 +299,7 @@ header {
   }
 
   @include responsive(tiny-screens) {
-    right: -398px;
-    top: 10px;
+    visibility: hidden;
   }
 }
 
@@ -546,6 +556,7 @@ header {
       }
     }
   }
+
 
 
   .title {
@@ -1010,7 +1021,112 @@ header {
       position: absolute;
     }
 
-    //a.current {
+    //STUFF RE: NAVIGATION PLUGIN
+
+    .primary-nav {
+
+
+      font: {
+        family: $font-sans;
+        size: 16pt;
+        weight: bold;
+      }
+
+
+      & li {
+        padding: 12px 8px 12px 0px;
+        list-style: none;
+
+        & a:active {
+          color: $color-pink;
+        }
+      }
+
+    }
+
+    a.current {
+      color: $color-pink;
+
+    }
+
+    #handle {
+      font: {
+        family: $font-sans;
+        size: 16pt;
+        weight: bold;
+      }
+      background-color: $color-border;
+      color: #fff;
+      height: 165px;
+      width: 200px;
+      left: -5px;
+      position: absolute;
+      border: none;
+      font-size: 24px;
+    }
+
+    .fs-navigation-overlay-nav {
+      visibility: hidden;
+    }
+
+    .fs-navigation-overlay-nav.fs-navigation-enabled {
+      background: $color-border;
+      padding: 10px 30px 10px 50px;
+      text-align: right;
+      font-size: 28px;
+    }
+
+    .fs-navigation-overlay-nav.fs-navigation-animated {
+      -webkit-transition:visibility 1ms linear .2s , -webkit-transform .2s ease;
+      transition: visibility 1ms linear .2s , -webkit-transform .2s ease;
+      transition: transform .2s ease, visibility 1ms linear .2s;
+      transition: transform .2s ease, visibility 1ms linear .2s,-webkit-transform .2s ease;
+    }
+
+    .fs-navigation-overlay-left-nav.fs-navigation-enabled {
+      -webkit-transform:translateX(-270px);
+      -ms-transform:translateX(-270px);
+      transform:translateX(-270px);
+    }
+
+    .fs-navigation-overlay-left-nav.fs-navigation-enabled {
+      -webkit-transform:translate3D(-270px,0,0);
+      -ms-transform:translate3D(-270px,0,0);
+      transform:translate3D(-270px,0,0);
+    }
+
+    .fs-navigation-overlay-nav.fs-navigation-enabled {
+      z-index:3;
+    }
+
+    .fs-navigation-overlay-left-nav.fs-navigation-open {
+      box-shadow:2px 0 2px $color-border;
+    }
+
+    .fs-navigation-overlay-nav.fs-navigation-open {
+      -webkit-transform:translateX(0);
+      -ms-transform:translateX(0);
+      transform:translateX(0);
+      -webkit-transition:visibility 1ms ease,-webkit-transform .2s ease;transition:visibility 1ms ease,-webkit-transform .2s ease;
+      transition:transform .2s ease,visibility 1ms ease;
+      transition:transform .2s ease,visibility 1ms ease,-webkit-transform .2s ease;visibility:visible;
+    }
+
+    .fs-navigation-overlay-nav.fs-navigation-open {
+      -webkit-transform:translate3D(0,0,0);
+      -ms-transform:translate3D(0,0,0);
+      transform:translate3D(0,0,0);
+    }
+
+    .fs-navigation-overlay-content:before {
+      background: $color-border;
+      opacity: 0;
+      -webkit-transition: opacity .2s ease, visibility .2s ease;
+      transition: opacity .2s ease, visibility .2s ease;
+      visibility: visible;
+    }
+
+      //a.current {
     //  background-color: $color-background;
     //  margin: 8px 6px;
     //  padding: 5px 6px 20px 6px;
@@ -1037,37 +1153,4 @@ header {
   .article-main {
     font-size: 24pt;
   }
-}
-
-
-//STUFF RE: NAVIGATION PLUGIN
-
-.primary-nav {
-
-  font: {
-    size: 200%;
-  }
-
-  margin: 50px;
-
-  & li {
-    padding: 12px 8px 12px 0px;
-    list-style: none;
-  }
-
-}
-
-#handle {
-  font: {
-    family: $font-sans;
-    size: 16pt;
-    weight: bold;
-  }
-  color: $color-blue;
-  height: 80px;
-  position: absolute;
-  top: 40px;
-  left: 60px;
-  border: none;
-  font-size: 24px;
 }
