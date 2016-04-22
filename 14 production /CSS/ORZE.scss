@@ -1,0 +1,36 @@
+$orange-light: #F0CF94;
+$orange-dark: #E9AC81;
+$blue-light: #B9D3F1;
+$blue-middle: #A3B8D7;
+$blue-dark: #1D163F;
+
+//test space styling
+
+
+
+body {
+  font: {
+    family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    size: 20pt;
+  }
+  background-color: $blue-dark;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 15px;
+  font: {
+    family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    weight: bold;
+  }
+  color: $blue-dark;
+}
+
+.active {
+  background-color: $orange-light;
+}
+
+.passive {
+  background-color: $blue-light;
+}
