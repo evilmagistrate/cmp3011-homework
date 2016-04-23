@@ -16,7 +16,7 @@ body {
   background-color: $blue-dark;
 }
 
-input {
+input, button {
   outline: none;
   border: none;
   padding: 15px;
@@ -25,6 +25,12 @@ input {
     weight: bold;
   }
   color: $blue-dark;
+  width: 100%;
+}
+
+button {
+  position: absolute;
+  background-color: $orange-light;
 }
 
 .active {
@@ -33,4 +39,31 @@ input {
 
 .passive {
   background-color: $blue-light;
+}
+
+input{
+  //
+  //&::-webkit-input-placeholder {
+  //  color: $blue-dark;
+  //}
+  //
+  //&:-moz-placeholder { /* Firefox 18- */
+  //  color: $blue-dark;
+  //}
+  //
+  //&::-moz-placeholder {  /* Firefox 19+ */
+  //  color: $blue-dark;
+  //}
+  //
+  //&:-ms-input-placeholder {
+  //  color: $blue-dark;
+  //}
+
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }

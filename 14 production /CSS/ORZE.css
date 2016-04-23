@@ -3,18 +3,29 @@ body {
   font-size: 20pt;
   background-color: #1D163F; }
 
-input {
+input, button {
   outline: none;
   border: none;
   padding: 15px;
   font-family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: bold;
-  color: #1D163F; }
+  color: #1D163F;
+  width: 100%; }
+
+button {
+  position: absolute;
+  background-color: #F0CF94; }
 
 .active {
   background-color: #F0CF94; }
 
 .passive {
   background-color: #B9D3F1; }
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis; }
 
 /*# sourceMappingURL=ORZE.css.map */

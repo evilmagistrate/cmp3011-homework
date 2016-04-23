@@ -14,9 +14,8 @@ User scenario: creating new list and adding items
 //When New List is pressed, focus on newList
 //Add Item field appears
 //User enters name
-Name of newList stored on blur
 
-TODO: figure out how to check to see if the add item button is already present (clicking title or add item multiple times SHOULD NOT create multiple add item buttons) OR! make the add item a button and hide/show it
+Name of newList stored on blur
 
 When Add Item is pressed, itemEntry field appears and gains focus
 Add Item button stays beneath list title
@@ -46,18 +45,41 @@ settings
 
 $().ready(function() {
 
-    $('#new_list').on('click', function newListcreation() {
-        var newInput = document.createElement("INPUT");
-        document.body.appendChild(newInput);
-        $(newInput).attr('placeholder', 'Add Item');
-        $(newInput).addClass('active');
+    var $newList= $('#new_list');
+    var $addItem= $('#add_item');
+
+    $('#add_item').hide();
+
+
+    $newList.on('click', function newListcreation() {
+        //var newInput = document.createElement("INPUT");
+        //document.body.appendChild(newInput);
+        //$(newInput).attr('placeholder', 'Add Item');
+        //$(newInput).addClass('active');
+
+        $('#add_item').slideDown(500);
+
+
     });
 
-    $('#new_list').on('blur', function newListcompleted() {
+    $newList.on('blur', function newListcompleted() {
 
-        var newText = $('#new_list').val();
-        $("#new_list").removeClass('active');
-        $("#new_list").addClass('passive');
+        var newText = $newList.val();
+        $newList.removeClass('active');
+        $newList.addClass('passive');
+    });
+
+    $addItem.on('click', function newItemfield() {
+        var newInput = document.createElement("INPUT");
+        document.body.appendChild(newInput);
+        $(newInput).attr('placeholder', 'New Item');
+        $(newInput).addClass('active');
+        $(newInput).focus();
+
+    });
+
+    $('input').on('blur', function newItemcompleted() {
+
     });
 
 });
