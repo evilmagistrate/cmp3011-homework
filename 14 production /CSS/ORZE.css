@@ -10,7 +10,8 @@ input, button {
   font-family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: bold;
   color: #1D163F;
-  width: 100%; }
+  width: 105%;
+  margin-left: -2%; }
 
 button {
   position: absolute;

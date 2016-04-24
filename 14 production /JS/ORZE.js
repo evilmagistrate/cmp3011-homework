@@ -15,12 +15,12 @@ User scenario: creating new list and adding items
 //Add Item field appears
 //User enters name
 
-Name of newList stored on blur
+Name of newList stored on blur?
 
-When Add Item is pressed, itemEntry field appears and gains focus
-Add Item button stays beneath list title
+//When Add Item is pressed, itemEntry field appears and gains focus
+//Add Item button stays beneath list title
 User enters text
-Name of enteredItem stored on blur
+Name of enteredItem stored on blur?
 
 Rinse and repeat
 
@@ -50,6 +50,7 @@ $().ready(function() {
 
     $('#add_item').hide();
 
+    var listName = [ ];
 
     $newList.on('click', function newListcreation() {
         //var newInput = document.createElement("INPUT");
@@ -59,14 +60,14 @@ $().ready(function() {
 
         $('#add_item').slideDown(500);
 
-
     });
 
-    $newList.on('blur', function newListcompleted() {
+    $newList.on('blur', function newListTitled() {
 
         var newText = $newList.val();
         $newList.removeClass('active');
         $newList.addClass('passive');
+
     });
 
     $addItem.on('click', function newItemfield() {
@@ -74,12 +75,15 @@ $().ready(function() {
         document.body.appendChild(newInput);
         $(newInput).attr('placeholder', 'New Item');
         $(newInput).addClass('active');
+        $(newInput).attr('id', 'listItem');
         $(newInput).focus();
 
     });
 
-    $('input').on('blur', function newItemcompleted() {
-
+    $('#listItem').on('blur', function newItemcompleted() {
+        $('#listItem').removeClass('active');
+        $('#listItem').addClass('passive');
     });
+
 
 });
