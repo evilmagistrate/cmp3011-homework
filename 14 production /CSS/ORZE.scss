@@ -4,34 +4,37 @@ $blue-light: #B9D3F1;
 $blue-middle: #A3B8D7;
 $blue-dark: #1D163F;
 
-//test space styling
-
-
+$font-serif: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$font-sans: Futura, 'Trebuchet MS', Arial, sans-serif;
 
 body {
   font: {
-    family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    family: $font-serif;
     size: 20pt;
   }
   background-color: $blue-dark;
+  width: 100%;
+  margin: 0;
 }
+
 
 input, button {
   outline: none;
   border: none;
-  padding: 15px;
+  padding: 20px 20px 20px 24px;
+  width: 100%;
+  margin: 0;
   font: {
-    family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    family: $font-serif;
     weight: bold;
+    size: 10pt;
   }
   color: $blue-dark;
-  width: 105%;
-  margin-left: -2%;
 }
 
 button {
   position: absolute;
-  background-color: $orange-light;
+  background-color: $orange-dark;
 }
 
 .active {
@@ -40,6 +43,10 @@ button {
 
 .passive {
   background-color: $blue-light;
+}
+
+.blue-middle {
+  background-color: $blue-middle;
 }
 
 input{
@@ -67,4 +74,34 @@ input{
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
+}
+
+#handle {
+  position: fixed;
+  top: 0px;
+  padding: 20px 10px 20px 10px;
+  margin: 0 0 20px 0;
+  background-color: $blue-dark;
+  width: 100%;
+  color: #fff;
+  font: {
+    weight: normal;
+    family: $font-sans;
+    size: 16pt;
+  }
+}
+
+#new_list {
+  position: fixed;
+  top: 60px;
+}
+
+#add_item {
+  position: fixed;
+  bottom: 0px;
+}
+
+#list_content {
+  margin-top: 115px;
+  margin-bottom: 100px;
 }
