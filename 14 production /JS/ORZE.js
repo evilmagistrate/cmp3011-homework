@@ -45,12 +45,43 @@ settings
 
 $().ready(function() {
 
+    var i = Number(localStorage.getItem('todo-counter')) + 1;
+    var $itemList = $('#list_content');
+    var $newItem = $('#listItem');
+    var order = [];
     var $newList= $('#new_list');
     var $addItem= $('#add_item');
+    var $this;
 
     $('#add_item').hide();
 
-    var listName = [ ];
+    function itemStorage ( ) {
+
+        if ($newItem.val() !== "") {
+            localStorage.setItem(
+                "todo-" + i, $newItem.val()
+            );
+
+            localStorage.setItem(
+                'todo-counter', i
+            );
+
+//TODO: generate additional fields/buttons here for quantity and description
+
+            var $newTodoList = $('#new_list');
+            order.length = 0;
+
+            $newTodoList.each(function () {
+                var $this = $(this).attr('id');
+                order.push($this);
+            });
+
+            localStorage.setItem(
+                'todo-orders', order.join(',')
+            );
+        }
+    }
+
 
     $newList.on('click', function newListcreation() {
         //var newInput = document.createElement("INPUT");
@@ -65,25 +96,34 @@ $().ready(function() {
     $newList.on('blur', function newListTitled() {
 
         var newText = $newList.val();
-        $newList.removeClass('active');
-        $newList.addClass('passive');
+
+        $newList.removeClass( 'active' );
+        $newList.addClass( 'passive' );
+
+        itemStorage();
 
     });
 
     $addItem.on('click', function newItemfield() {
+
         var newInput = document.createElement("INPUT");
-        document.body.appendChild(newInput);
+        document.getElementById("list_content").appendChild(newInput);
         $(newInput).attr('placeholder', 'New Item');
-        $(newInput).addClass('active');
         $(newInput).attr('id', 'listItem');
+
+        $(newInput).addClass( 'active' );
+
         $(newInput).focus();
 
     });
 
-    $('#listItem').on('blur', function newItemcompleted() {
-        $('#listItem').removeClass('active');
-        $('#listItem').addClass('passive');
-    });
+    $('#listItem').on('focusout', function newItemcompleted() {
 
+        $('#listItem').removeClass( 'active' );
+        $('#listItem').addClass( 'passive' );
+
+        itemStorage();
+
+    });
 
 });
