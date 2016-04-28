@@ -8,31 +8,34 @@
     <meta name="viewport" content="width=device-width">
     <link href="CSS/ORZE.css" type="text/css" rel="stylesheet" />
     <link href="Formstone/dist/css/navigation.css" rel="stylesheet" />
-    <link href="Formstone/dist/css/checkbox.css" rel="stylesheet" />
 
 </head>
 
 <header>
     <h4 id="handle">Menu</h4>
     <nav data-navigation-handle="#handle" data-navigation-content="#content">
-        <ul><li><a href="#">focus</a>
-            <input type="checkbox" name="focus_mode" id="applyFocus" value="off">
-        </li>
-        <li><a href="#">lists</a></li>
-        <li><a href="#">settings</a></li>
+        <ul>
+            <li><a href="" id="focus_mode">focus</a></li>
+            <li><a href="" id="sort_mode">focus</a></li>
+            <li><a href="" id="return_to_lists">lists</a></li>
+        <li><a href="" id="settings">settings</a></li>
         </ul>
     </nav>
 </header>
 
 <body>
 
-<input type="text" id="new_list" placeholder="New List" class="active">
-</input>
+<div id="wrapper">
 
-<div id="list_content">
+<input type="text" id="new_list" placeholder="New List" class="active" />
+
+    <div id="list_content">
+
+    </div>
+
     <button id="add_item">
-    Add Item
-</button>
+        Add Item
+    </button>
 </div>
 
 
@@ -45,8 +48,8 @@
 <script src="Formstone/dist/js/navigation.js"></script>
 <script src="Formstone/dist/js/mediaquery.js"></script>
 <script src="Formstone/dist/js/swap.js"></script>
-<script src="Formstone/dist/js/checkbox.js"></script>
 
 </body>
+>
 
 </html>

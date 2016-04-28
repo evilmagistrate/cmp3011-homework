@@ -1,3 +1,8 @@
+
+
+// variables
+
+
 $orange-light: #F0CF94;
 $orange-dark: #E9AC81;
 $blue-light: #B9D3F1;
@@ -6,6 +11,37 @@ $blue-dark: #1D163F;
 
 $font-serif: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
 $font-sans: Futura, 'Trebuchet MS', Arial, sans-serif;
+
+$width-small: 667px;
+$width-medium: 1024px;
+$width-large: 1366px;
+
+
+// mixins
+
+
+@mixin responsive($width) {
+  @if $width == wide-screens {
+    @media only screen and (max-width: $width-large)
+    { @content; }
+  }
+  @else if $width == medium-screens {
+    @media only screen and (max-width: $width-medium)
+    { @content; }
+  }
+  @else if $width == small-screens {
+    @media only screen and (max-width: $width-small)
+    { @content; }
+  }
+}
+
+
+// main content
+
+#content {
+  background-color: $blue-light;
+  text-decoration: none;
+}
 
 body {
   font: {
@@ -17,10 +53,10 @@ body {
   margin: 0;
 }
 
-
 input, button {
   outline: none;
   border: none;
+  border-radius: 0;
   padding: 20px 20px 20px 24px;
   width: 100%;
   margin: 0;
@@ -30,11 +66,43 @@ input, button {
     size: 10pt;
   }
   color: $blue-dark;
+
+  @include responsive(small-screens) {
+    margin-left: -1%;
+    width: 105%;
+    height: 10px;
+  }
 }
 
-button {
-  position: absolute;
+ul {
+  list-style: none;
+  margin-top: 65px;
+
+  @include responsive (small-screens) {
+    margin-top: 35px;
+  }
+}
+
+li {
+  margin: 10px 10px 10px 0px;
+  padding: 10px;
+  text-transform: uppercase;
+  font: {
+    family: $font-sans;
+    weight: bold;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $blue-dark;
+
+}
+
+#add_item {
+  position: fixed;
   background-color: $orange-dark;
+  bottom: 0px;
 }
 
 .active {
@@ -47,6 +115,11 @@ button {
 
 .blue-middle {
   background-color: $blue-middle;
+}
+
+#list_content {
+  position: absolute;
+  z-index: -1;
 }
 
 input{
@@ -76,6 +149,42 @@ input{
   -o-text-overflow: ellipsis;
 }
 
+
+#new_list {
+  position: fixed;
+  top: 60px;
+  padding-top: 30px;
+}
+
+#add_item {
+  position: fixed;
+  bottom: 0;
+}
+
+#wrapper {
+
+  position: relative;
+  top: 124px;
+
+  @include responsive(small-screens) {
+    position: relative;
+    top: 94px;
+  }
+}
+
+// Mobile specific stylings
+
+
+@include responsive(small-screens) {
+
+  #new_list {
+    margin-top: -20px;
+  }
+}
+
+//  formstone stylings
+
+
 #handle {
   position: fixed;
   top: 0px;
@@ -84,24 +193,18 @@ input{
   background-color: $blue-dark;
   width: 100%;
   color: #fff;
+  z-index: 1;
   font: {
     weight: normal;
     family: $font-sans;
     size: 16pt;
   }
+
+  @include responsive(small-screens) {
+    font: {
+      size: 12pt;
+    }
+    padding: 10px 5px 10px 10px;
+  }
 }
 
-#new_list {
-  position: fixed;
-  top: 60px;
-}
-
-#add_item {
-  position: fixed;
-  bottom: 0px;
-}
-
-#list_content {
-  margin-top: 115px;
-  margin-bottom: 100px;
-}
