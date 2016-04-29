@@ -25,7 +25,7 @@ Name of enteredItem stored on blur?
 Rinse and repeat
 
 Questions: is category assignment prompted now or is there a flyout for info (if so, how to manage)?
-also, methods of quick quantity or category entry (such as # or ,) parsed out?
+also, methods of quick quantity or category entry (such as # or ,) split out?
 
 Basic requirements:
 
@@ -44,6 +44,57 @@ logo (does anything?)
 
 $().ready(function() {
 
+
+
+    var listContents = [];
+
+    var listName = $('#generate_new_list').textContent;
+
+    localStorage.setItem(listName);
+
+
+    listContents.push({name:"a",roll:"9",age:13});
+    listContents.push({name:"b",roll:"10",age:14});
+    listContents.push({name:"c",roll:"11",age:15});
+    And then store that in localStorage:
+
+    localStorage.setItem('studentsInfo', JSON.stringify(students));
+
+// When you get more student information, you should:
+    var addNewStudent = function (name, roll, age) {
+        // retrieve it (Or create a blank array if there isn't any info saved yet),
+        var students = JSON.parse(localStorage.getItem('studentsInfo') || [];
+        // add to it,
+        students.push({name: name, roll: roll, age: age});
+        // then put it back.
+        localStorage.setItem('studentsInfo', JSON.stringify(students));
+    }
+
+
+//     function arranging_storage( x ) {
+//        array x.innerText= [
+//
+//             ]
+//    }
+//
+//    var obj = JSON.parse(listData);
+//
+//function
+//
+//    var ListData = '{ "listItems" : [' +
+//        '{ "item":"Bananas" , "quantity":"5" , "description":" "}' +
+//        ']}';
+//
+//
+//
+//    document.getElementById("demo").innerHTML =
+//        obj.listItems[0].quantity + ", " + obj.listItems[0].item + " " + obj.description[0].item;
+
+
+
+//keepers
+
+
     var $itemList = $('#list_content');
     var $newItem = $('#listItem');
     var $newList= $('#new_list');
@@ -53,23 +104,12 @@ $().ready(function() {
 
 
 
-//storage management ideas, super basic
-
-    //$(function() {
-    //    var listItem = document.getElementById('listItem');
-    //    $(listItem).blur(function() {
-    //        localStorage.setItem('todoData', this.textContent);
-    //    });
-    //    if ( localStorage.getItem('todoData') ) {
-    //        listItem.textContent = localStorage.getItem('todoData');
-    //    }
-    //});
-
 //accepting user input on 'return' key
 
     $('input[type=text]').on('keydown', function(e) {
         if (e.which == 13) {
             var newInput = document.createElement("INPUT");
+
             document.getElementById("list_content").appendChild(newInput);
             $(newInput).attr('placeholder', 'New Item');
             $(newInput).attr('type', 'text');
@@ -80,14 +120,14 @@ $().ready(function() {
         }
     });
 
- //$('#return_to_lists').on('click', function(e) {
- //    e.preventDefault();
- //    var url = this.href;
- //
- //    $('#wrapper').remove();
- //    $('#wrapper').load(url + ' #wrapper').hide().fadeIn('slow');
- //
- //   });
+ $('#return_to_lists').on('click', function(e) {
+     e.preventDefault();
+     var url = this.href;
+
+     $('#wrapper').remove();
+     $('#wrapper').load(url + ' #wrapper').hide().fadeIn('slow');
+
+    });
 
     $newList.on('click', function newListcreation() {
         //var newInput = document.createElement("INPUT");
@@ -111,7 +151,7 @@ $().ready(function() {
         var newInput = document.createElement("INPUT");
         document.getElementById("list_content").appendChild(newInput);
         $(newInput).attr('placeholder', 'New Item');
-        $(newInput).attr('type', 'text')
+        $(newInput).attr('type', 'text');
         $(newInput).addClass('active');
         $(newInput).focus();
     });
