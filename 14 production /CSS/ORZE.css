@@ -1,6 +1,7 @@
 #content {
   background-color: #B9D3F1;
-  text-decoration: none; }
+  text-decoration: none;
+  text-align: left; }
 
 body {
   font-family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -9,31 +10,37 @@ body {
   width: 100%;
   margin: 0; }
 
-input, button {
+input, #add_item {
   outline: none;
   border: none;
   border-radius: 0;
   padding: 20px 20px 20px 24px;
   width: 100%;
-  margin: 0;
+  margin-left: 0;
+  background-color: #B9D3F1;
   font-family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: bold;
   font-size: 10pt;
   color: #1D163F; }
   @media only screen and (max-width: 667px) {
-    input, button {
+    input, #add_item {
       margin-left: -1%;
       width: 105%;
       height: 10px; } }
 
 ul {
   list-style: none;
-  margin-top: 65px; }
+  width: 102%;
+  margin-left: -1%; }
   @media only screen and (max-width: 667px) {
     ul {
-      margin-top: 35px; } }
+      margin-top: 0px; } }
 
-li {
+.listItem {
+  margin-top: -5px;
+  padding: 24px; }
+
+nav li {
   margin: 10px 10px 10px 0px;
   padding: 10px;
   text-transform: uppercase;
@@ -47,7 +54,8 @@ a {
 #add_item {
   position: fixed;
   background-color: #E9AC81;
-  bottom: 0px; }
+  bottom: 0px;
+  z-index: 2; }
 
 .active {
   background-color: #F0CF94; }
@@ -60,7 +68,8 @@ a {
 
 #list_content {
   position: absolute;
-  z-index: -1; }
+  z-index: 0;
+  margin-left: -50px; }
 
 .ellipsis {
   white-space: nowrap;
@@ -68,35 +77,53 @@ a {
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis; }
 
-#new_list {
+#new_list, #generate_new_list {
   position: fixed;
-  top: 60px;
+  top: 42px;
   padding-top: 30px; }
 
 #add_item {
   position: fixed;
-  bottom: 0; }
+  bottom: 0;
+  padding-bottom: 40px; }
 
 #wrapper {
   position: relative;
-  top: 124px; }
+  height: 80%; }
   @media only screen and (max-width: 667px) {
     #wrapper {
       position: relative;
       top: 94px; } }
+
+header {
+  width: 100%;
+  background-color: #1D163F;
+  z-index: 8;
+  position: fixed; }
+
+#back_button {
+  color: #fff;
+  position: fixed;
+  left: 6px;
+  padding: 8px 5px 5px 8px;
+  outline: none;
+  border: none;
+  background-color: #1D163F;
+  z-index: 9; }
 
 @media only screen and (max-width: 667px) {
   #new_list {
     margin-top: -20px; } }
 #handle {
   position: fixed;
+  text-align: left;
+  width: 100px;
   top: 0px;
-  padding: 20px 10px 20px 10px;
-  margin: 0 0 20px 0;
-  background-color: #1D163F;
-  width: 100%;
+  right: -65px;
+  margin: 0 20px 20px 0;
   color: #fff;
-  z-index: 1;
+  background-color: #1D163F;
+  z-index: 9;
   font-weight: normal;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 16pt; }

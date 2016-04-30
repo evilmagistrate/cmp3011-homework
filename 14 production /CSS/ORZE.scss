@@ -1,5 +1,4 @@
 
-
 // variables
 
 
@@ -38,9 +37,12 @@ $width-large: 1366px;
 
 // main content
 
+
+
 #content {
   background-color: $blue-light;
   text-decoration: none;
+  text-align: left;
 }
 
 body {
@@ -53,13 +55,15 @@ body {
   margin: 0;
 }
 
-input, button {
+input, #add_item {
   outline: none;
   border: none;
   border-radius: 0;
   padding: 20px 20px 20px 24px;
   width: 100%;
-  margin: 0;
+  margin-left: 0;
+  background-color: $blue-light;
+
   font: {
     family: $font-serif;
     weight: bold;
@@ -76,14 +80,19 @@ input, button {
 
 ul {
   list-style: none;
-  margin-top: 65px;
+  width: 102%;
+  margin-left: -1%;
 
   @include responsive (small-screens) {
-    margin-top: 35px;
-  }
+  margin-top: 45px;
 }
 
-li {
+.listItem {
+  margin-top: -5px;
+  padding: 24px;
+}
+
+nav li {
   margin: 10px 10px 10px 0px;
   padding: 10px;
   text-transform: uppercase;
@@ -103,6 +112,7 @@ a {
   position: fixed;
   background-color: $orange-dark;
   bottom: 0px;
+  z-index: 2;
 }
 
 .active {
@@ -119,7 +129,8 @@ a {
 
 #list_content {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
+  margin-left: -50px;
 }
 
 input{
@@ -150,21 +161,22 @@ input{
 }
 
 
-#new_list {
+#new_list, #generate_new_list {
   position: fixed;
-  top: 60px;
+  top: 42px;
   padding-top: 30px;
 }
 
 #add_item {
   position: fixed;
   bottom: 0;
+  padding-bottom: 40px;
 }
 
 #wrapper {
 
   position: relative;
-  top: 124px;
+  height: 80%;
 
   @include responsive(small-screens) {
     position: relative;
@@ -172,7 +184,26 @@ input{
   }
 }
 
-// Mobile specific stylings
+header {
+  width: 100%;
+  background-color: $blue-dark;
+  z-index: 8;
+  position: fixed;
+}
+
+#back_button {
+  color: #fff;
+  position: fixed;
+  left: 6px;
+  padding: 8px 5px 5px 8px;
+  outline: none;
+  border: none;
+  background-color: $blue-dark;
+  z-index: 9;
+}
+
+
+//Mobile specific stylings
 
 
 @include responsive(small-screens) {
@@ -184,16 +215,16 @@ input{
 
 //  formstone stylings
 
-
 #handle {
   position: fixed;
+  text-align: left;
+  width: 100px;
   top: 0px;
-  padding: 20px 10px 20px 10px;
-  margin: 0 0 20px 0;
-  background-color: $blue-dark;
-  width: 100%;
+  right: -65px;
+  margin: 0 20px 20px 0;
   color: #fff;
-  z-index: 1;
+  background-color: $blue-dark;
+  z-index: 9;
   font: {
     weight: normal;
     family: $font-sans;
@@ -207,4 +238,3 @@ input{
     padding: 10px 5px 10px 10px;
   }
 }
-
