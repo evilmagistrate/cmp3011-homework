@@ -54,27 +54,18 @@ $().ready(function() {
     var listContents = [];
 
 
-    function storeNewItem( item, quantity, category ) {
-
-        var listContents = JSON.parse(localStorage.getItem( 'listName' ) || []);
-        listContents.push({item: item , quantity: quantity, category: category });
-        localStorage.setItem( 'listName', JSON.stringify(listContents));
-
-    }
+    //function storeNewItem( item, quantity, category ) {
+    //
+    //    var listContents = JSON.parse(localStorage.getItem( 'listName' ) || []);
+    //    listContents.push({item: item , quantity: quantity, category: category });
+    //    localStorage.setItem( 'listName', JSON.stringify(listContents));
+    //
+    //}
 
 //creating content
 
-    $newList.on('click', function newListcreation() {
-        //var newInput = document.createElement("INPUT");
-        //document.body.appendChild(newInput);
-        //$(newInput).attr('placeholder', 'Add Item');
-        //$(newInput).addClass('active');
 
-        $('#add_item').slideDown(500);
-
-    });
-
-    $newList.on('blur', function newListTitled() {
+    $newList.on('blur', function () {
 
         $newList.removeClass('active');
         $newList.addClass('blue-middle');
@@ -88,45 +79,31 @@ $().ready(function() {
     $('input[type=text]').on('keydown', function(e) {
         if (e.which == 13) {
 
-            var newLI = document.createElement("LI");
-            var newInput = document.createElement("INPUT");
-            newLI.appendChild(newInput);
-            document.getElementById("list_content").appendChild(newLI);
+            $( "<div ><input type='text' placeholder='New Item Name' title='add list item' class='list_item, active' /> <input type='text' placeholder='Quantity' title='add optional quantity' class='item_quantity, active'/></div>").appendTo( "#list_content" );
 
-            $(newInput).attr('placeholder', 'New Item');
-            $(newInput).attr('type', 'text');
-
-            $(newInput).addClass( "listItem active" );
-
-            $(newInput).focus();
+            $('list_item').focus();
 
         }
     });
 
-    $addItem.on('click', function newItemfield() {
-        var newLI = document.createElement("LI");
-        var newInput = document.createElement("INPUT");
-        newLI.appendChild(newInput);
-        document.getElementById("list_content").appendChild(newLI);
+    $addItem.on('click', function () {
 
+        $( "<div ><input type='text' placeholder='New Item Name' title='add list item' class='list_item, active' /> <input type='text' placeholder='Quantity' title='add optional quantity' class='item_quantity, active'/></div>").appendTo( "#list_content" );
 
-        $(newInput).attr('placeholder', 'New Item');
-        $(newInput).attr('type', 'text');
-
-        $(newInput).addClass( "listItem active" );
-
-        $(newInput).focus();
-
-    });
-
-    $('.listItem').on('blur', function newItemcompleted() {
-
-        $(".listItem").removeClass( "active" );
-
-        var item = $(".listItem").value;
+        $('list_item').focus();
 
 
     });
+
+    $('listItem').on('blur', function () {
+
+        $("listItem").removeClass( "active" );
+
+        var item = $("listItem").value;
+
+
+    });
+
 
 
 //Formstone Plugins

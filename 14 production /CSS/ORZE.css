@@ -10,35 +10,26 @@ body {
   width: 100%;
   margin: 0; }
 
-input, #add_item {
+input {
   outline: none;
   border: none;
   border-radius: 0;
   padding: 20px 20px 20px 24px;
-  width: 100%;
   margin-left: 0;
-  background-color: #B9D3F1;
   font-family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: bold;
   font-size: 10pt;
   color: #1D163F; }
   @media only screen and (max-width: 667px) {
-    input, #add_item {
+    input {
       margin-left: -1%;
-      width: 105%;
       height: 10px; } }
 
 ul {
   list-style: none;
   width: 102%;
-  margin-left: -1%; }
-  @media only screen and (max-width: 667px) {
-    ul {
-      margin-top: 0px; } }
-
-.listItem {
-  margin-top: -5px;
-  padding: 24px; }
+  margin-left: -1%;
+  margin-top: 15%; }
 
 nav li {
   margin: 10px 10px 10px 0px;
@@ -68,8 +59,7 @@ a {
 
 #list_content {
   position: absolute;
-  z-index: 0;
-  margin-left: -50px; }
+  z-index: 0; }
 
 .ellipsis {
   white-space: nowrap;
@@ -79,8 +69,17 @@ a {
 
 #new_list, #generate_new_list {
   position: fixed;
-  top: 42px;
-  padding-top: 30px; }
+  width: 101%;
+  padding-top: 30px;
+  z-index: 2; }
+
+#list_title {
+  margin-top: 60px;
+  display: flex; }
+
+.add_button {
+  color: #E9AC81;
+  z-index: 8; }
 
 #add_item {
   position: fixed;
@@ -98,14 +97,19 @@ a {
 header {
   width: 100%;
   background-color: #1D163F;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 8%;
   z-index: 8;
   position: fixed; }
 
 #back_button {
   color: #fff;
   position: fixed;
-  left: 6px;
-  padding: 8px 5px 5px 8px;
+  top: 0;
+  padding-top: 20px;
+  padding-left: 12px;
   outline: none;
   border: none;
   background-color: #1D163F;
@@ -117,10 +121,9 @@ header {
 #handle {
   position: fixed;
   text-align: left;
-  width: 100px;
-  top: 0px;
-  right: -65px;
-  margin: 0 20px 20px 0;
+  top: -8px;
+  right: 0;
+  padding-right: 12px;
   color: #fff;
   background-color: #1D163F;
   z-index: 9;
@@ -130,6 +133,7 @@ header {
   @media only screen and (max-width: 667px) {
     #handle {
       font-size: 12pt;
-      padding: 10px 5px 10px 10px; } }
+      top: 0;
+      right: 0; } }
 
 /*# sourceMappingURL=ORZE.css.map */
