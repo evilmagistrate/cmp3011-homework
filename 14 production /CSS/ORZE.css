@@ -55,8 +55,29 @@ a {
   background-color: #A3B8D7; }
 
 #list_content {
+  z-index: 0;
+  background-color: #B9D3F1;
   position: absolute;
-  z-index: 0; }
+  top: 140px;
+  width: 101%; }
+  #list_content li {
+    list-style: none;
+    padding: 12px 5px 12px 5px;
+    margin: 10px;
+    font-size: 12pt; }
+
+.category, .quantity {
+  font-size: 9pt;
+  padding-top: 4px; }
+
+.category {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  background-color: #F0CF94;
+  text-transform: uppercase;
+  padding: 2px 4px 2px 6px;
+  margin-right: 1%;
+  float: right;
+  padding-top: 4px; }
 
 .ellipsis {
   white-space: nowrap;
@@ -64,7 +85,7 @@ a {
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis; }
 
-#new_list, #generate_new_list {
+#generate_new_list {
   position: fixed;
   width: 101%;
   padding-top: 30px;
@@ -72,8 +93,10 @@ a {
 
 #list_title {
   width: 101%;
+  position: fixed;
   margin-top: 60px;
   display: flex;
+  z-index: 7;
   align-items: center; }
 
 #new_list_icon, #add_item_icon {
@@ -89,17 +112,20 @@ a {
       padding: 14px 5px 10px 10px; } }
 
 #add_item_icon {
-  top: 115px; }
+  top: 118px; }
 
 #add_item {
   background-color: #F0CF94;
   position: fixed;
-  top: 113px;
+  top: 114px;
+  border-top: solid 2px #1D163F;
+  border-bottom: solid 2px #1D163F;
   height: 18%;
   width: 101%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  z-index: 9; }
   #add_item input {
     background-color: #F0CF94; }
   @media only screen and (max-width: 360px) {
@@ -146,6 +172,14 @@ header {
   background-color: #1D163F;
   z-index: 9; }
 
+h5 {
+  background-color: #A3B8D7;
+  color: #1D163F;
+  padding: 20px;
+  width: 101%;
+  position: fixed;
+  top: 20px; }
+
 @media only screen and (max-width: 667px) {
   #new_list {
     margin-top: -20px; } }
@@ -158,6 +192,7 @@ header {
   color: #fff;
   background-color: #1D163F;
   z-index: 9;
+  text-transform: uppercase;
   font-weight: normal;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 16pt; }
