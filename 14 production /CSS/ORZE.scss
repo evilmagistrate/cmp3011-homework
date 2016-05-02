@@ -64,13 +64,13 @@ input {
   outline: none;
   border: none;
   border-radius: 0;
-  padding: 20px 20px 20px 24px;
+  padding: 20px 20px 24px 24px;
   margin-left: 0;
 
   font: {
     family: $font-serif;
     weight: bold;
-    size: 10pt;
+    size: 12pt;
   }
   color: $blue-dark;
 
@@ -78,13 +78,17 @@ input {
     margin-left: -1%;
     height: 10px;
   }
+
+  @include responsive(tiny-screens) {
+   font-size: 10pt;
+  }
 }
 
 ul {
   list-style: none;
   width: 102%;
   margin-left: -1%;
-  margin-top: 15%;
+  margin-top: 22%;
 }
 
 nav li {
@@ -100,13 +104,6 @@ nav li {
 a {
   text-decoration: none;
   color: $blue-dark;
-}
-
-#add_item {
-  position: fixed;
-  background-color: $orange-dark;
-  bottom: 0px;
-  z-index: 2;
 }
 
 .active {
@@ -142,19 +139,62 @@ a {
 }
 
 #list_title {
+  width: 101%;
   margin-top: 60px;
   display: flex;
+  align-items: center;
 }
 
-.add_button {
-  color: $orange-dark;
-  z-index: 8;
+#new_list_icon, #add_item_icon {
+  color: $blue-dark;
+  z-index: 6;
+  position: fixed;
+  right: 16px;
+  padding: 20px 5px 10px 10px;
+
+  &:hover {
+    color: $orange-dark;
+  }
+
+  @include responsive(small-screens) {
+    padding: 14px 5px 10px 10px;
+  }
+}
+
+#add_item_icon {
+  top: 115px;
 }
 
 #add_item {
+  background-color: $orange-light;
   position: fixed;
-  bottom: 0;
-  padding-bottom: 40px;
+  top: 113px;
+  height: 18%;
+  width: 101%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & input {
+    background-color: $orange-light;
+  }
+
+  @include responsive (tiny-screens) {
+    height: 24%;
+  }
+}
+
+#add_quantity {
+  width: 40%;
+}
+
+#add_item_input {
+  margin-top: 10px;
+  width: 85%;
+}
+
+#add_category {
+  width: 50%;
 }
 
 #wrapper {
@@ -177,6 +217,7 @@ header {
   height: 8%;
   z-index: 8;
   position: fixed;
+  top: 0;
 }
 
 #back_button {

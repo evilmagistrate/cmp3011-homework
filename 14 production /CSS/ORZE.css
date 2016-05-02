@@ -14,22 +14,25 @@ input {
   outline: none;
   border: none;
   border-radius: 0;
-  padding: 20px 20px 20px 24px;
+  padding: 20px 20px 24px 24px;
   margin-left: 0;
   font-family: Arvo, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: bold;
-  font-size: 10pt;
+  font-size: 12pt;
   color: #1D163F; }
   @media only screen and (max-width: 667px) {
     input {
       margin-left: -1%;
       height: 10px; } }
+  @media only screen and (max-width: 360px) {
+    input {
+      font-size: 10pt; } }
 
 ul {
   list-style: none;
   width: 102%;
   margin-left: -1%;
-  margin-top: 15%; }
+  margin-top: 22%; }
 
 nav li {
   margin: 10px 10px 10px 0px;
@@ -41,12 +44,6 @@ nav li {
 a {
   text-decoration: none;
   color: #1D163F; }
-
-#add_item {
-  position: fixed;
-  background-color: #E9AC81;
-  bottom: 0px;
-  z-index: 2; }
 
 .active {
   background-color: #F0CF94; }
@@ -74,17 +71,50 @@ a {
   z-index: 2; }
 
 #list_title {
+  width: 101%;
   margin-top: 60px;
-  display: flex; }
+  display: flex;
+  align-items: center; }
 
-.add_button {
-  color: #E9AC81;
-  z-index: 8; }
+#new_list_icon, #add_item_icon {
+  color: #1D163F;
+  z-index: 6;
+  position: fixed;
+  right: 16px;
+  padding: 20px 5px 10px 10px; }
+  #new_list_icon:hover, #add_item_icon:hover {
+    color: #E9AC81; }
+  @media only screen and (max-width: 667px) {
+    #new_list_icon, #add_item_icon {
+      padding: 14px 5px 10px 10px; } }
+
+#add_item_icon {
+  top: 115px; }
 
 #add_item {
+  background-color: #F0CF94;
   position: fixed;
-  bottom: 0;
-  padding-bottom: 40px; }
+  top: 113px;
+  height: 18%;
+  width: 101%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  #add_item input {
+    background-color: #F0CF94; }
+  @media only screen and (max-width: 360px) {
+    #add_item {
+      height: 24%; } }
+
+#add_quantity {
+  width: 40%; }
+
+#add_item_input {
+  margin-top: 10px;
+  width: 85%; }
+
+#add_category {
+  width: 50%; }
 
 #wrapper {
   position: relative;
@@ -102,7 +132,8 @@ header {
   justify-content: center;
   height: 8%;
   z-index: 8;
-  position: fixed; }
+  position: fixed;
+  top: 0; }
 
 #back_button {
   color: #fff;

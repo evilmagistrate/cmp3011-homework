@@ -48,62 +48,77 @@ $().ready(function() {
     var $newItem = $('#listItem');
     var $newList= $('#generate_new_list');
     var $addItem= $('#add_item');
+    var $saveTitle= $('#save_list_title');
+    var $itemInput= $("#add_item_input");
+    var $saveItem= $('#add_item_button');
+
 
     $addItem.hide();
+    $newList.addClass('active');
 
     var listContents = [];
 
 
-    //function storeNewItem( item, quantity, category ) {
-    //
-    //    var listContents = JSON.parse(localStorage.getItem( 'listName' ) || []);
-    //    listContents.push({item: item , quantity: quantity, category: category });
-    //    localStorage.setItem( 'listName', JSON.stringify(listContents));
-    //
-    //}
 
-//creating content
+// Title Creation
 
+    $newList.on('focus', function () {
 
-    $newList.on('blur', function () {
+        $saveTitle.fadeIn(300);
 
-        $newList.removeClass('active');
-        $newList.addClass('blue-middle');
-
-        storeNewItem();
+        if (!$addItem.is("visible")) {
+            $addItem.slideDown(1000);
+        }
 
     });
 
-//accepting user input on 'return' key
+    $newList.on('blur', function () {
+        $newList.removeClass('active');
+        $newList.addClass('blue-middle');
+        $saveTitle.fadeOut(500);
+        $('#add_item_input').focus();
+    });
 
-    $('input[type=text]').on('keydown', function(e) {
+    $newList.on('keydown', function(e) {
         if (e.which == 13) {
-
-            $( "<div ><input type='text' placeholder='New Item Name' title='add list item' class='list_item, active' /> <input type='text' placeholder='Quantity' title='add optional quantity' class='item_quantity, active'/></div>").appendTo( "#list_content" );
-
-            $('list_item').focus();
-
+            $newList.removeClass('active');
+            $newList.addClass('blue-middle');
+            $saveTitle.fadeOut(500);
+            $('#add_item_input').focus();
         }
     });
 
-    $addItem.on('click', function () {
+    $saveTitle.on('click', function () {
 
-        $( "<div ><input type='text' placeholder='New Item Name' title='add list item' class='list_item, active' /> <input type='text' placeholder='Quantity' title='add optional quantity' class='item_quantity, active'/></div>").appendTo( "#list_content" );
-
-        $('list_item').focus();
-
-
-    });
-
-    $('listItem').on('blur', function () {
-
-        $("listItem").removeClass( "active" );
-
-        var item = $("listItem").value;
-
+        $newList.removeClass('active');
+        $newList.addClass('blue-middle');
+        $saveTitle.fadeOut(500);
+        $('#add_item_input').focus();
 
     });
 
+// end Title Creation
+
+
+// Adding Items
+
+    $itemInput.on('keydown', function(e) {
+        if (e.which == 13) {
+
+            $('.add').val('');
+            $('#add_item_input').focus();
+        }
+    });
+
+
+    $saveItem.on('click', function () {
+
+        $('.add').val('');
+        $('#add_item_input').focus();
+
+    });
+
+//end Adding Items
 
 
 //Formstone Plugins
