@@ -15,7 +15,7 @@ $().ready(function() {
 
     $addItem.hide();
     $newListName.addClass('active');
-    print_items ();
+    printFullList ();
 
 
 //Formstone Plugins
@@ -35,14 +35,14 @@ $().ready(function() {
     var $itemInput= $("#add_item_input");
     var $saveItem= $('#add_item_button');
 
-function print_items () {
+function printFullList () {
 
         if (localStorage.ORZE_db) {
 
             var listContents = JSON.parse(localStorage.ORZE_db);
             var listItems = listContents.items;
 
-            //TODO: list title not persistent after reloading page.
+            //TODO: list title does not remain persistent after reloading page.
 
             $('#list_title').html('<h5>' + listContents.name + '</h5>');
 
@@ -158,7 +158,9 @@ function saveListData() {
 
     }
 
-    print_items ();
+    $("#list_content").empty();
+    printFullList ();
+
 }
 
 // Title Creation
