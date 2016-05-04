@@ -27,7 +27,6 @@ $().ready(function() {
 
 //end Formstone Plugins
 
-
 });
 
     var $newListName= $('#generate_new_list');
@@ -36,7 +35,6 @@ $().ready(function() {
     var $itemInput= $("#add_item_input");
     var $saveItem= $('#add_item_button');
 
-
 function print_items () {
 
         if (localStorage.ORZE_db) {
@@ -44,19 +42,17 @@ function print_items () {
             var listContents = JSON.parse(localStorage.ORZE_db);
             var listItems = listContents.items;
 
-            $newListName.hide();
-            $addItem.show();
-            $('#add_item_input').focus();
-
-
-            //TODO: list title not persistent. figure out why
+            //TODO: list title not persistent after reloading page.
 
             $('#list_title').html('<h5>' + listContents.name + '</h5>');
 
-            // http://stackoverflow.com/questions/20772417/how-to-loop-through-json-array-in-jquery
+            $newListName.hide();
+            $addItem.slideDown(200);
+            $('#add_item_input').focus();
+
+// http://stackoverflow.com/questions/20772417/how-to-loop-through-json-array-in-jquery
 
             $.each(listItems, function (key, value) {
-
 
                 if (value.quantity == "" && value.category == "") {
 
@@ -76,11 +72,38 @@ function print_items () {
 
                 else if (value.category == "") {
                     $('#list_content').append('<li class="ellipsis"><span class="item">' + value.item + '</span>, &nbsp; <span class="quantity">' + value.quantity + '</span></li>');
+
                 }
 
             });
         }
 }
+
+
+function updateListKey() {
+
+    var $listKeyName = $newListName.val();
+    var listKeydata = localStorage.getItem('listKey');
+
+    if ( localStorage.listKey ) {
+
+        console.log ('ListKey database DOES exist.');
+
+        listKey = JSON.parse(listKeydata);
+        listKey.push([ $listKeyName ]);
+
+    }
+
+    else {
+        console.log ('ListKey database DOES NOT exist.');
+
+        listKey = [];
+        listKey.push([ $listKeyName ]);
+    }
+
+    localStorage.setItem('listKey', JSON.stringify(listKey));
+}
+
 
 function saveListData() {
 
@@ -112,18 +135,6 @@ function saveListData() {
 
         localStorage.ORZE_db = JSON.stringify(newList);
 
-        // How would you scale this for multiple lists?
-        // Easy: store each list as object in a "lists" object:
-        // localStorage.lists[0].name = 'groceries'
-        // localStorage.lists[0].items[0] = { 'item': 'cheese', 'quantity': '5' }
-        // localStorage.lists[1].name = 'fruits'
-        // localStorage.lists[1].items[0] = { 'item': 'bananas', 'quantity': '2' }
-        // or you could store each list in its own top-level object:
-        // localStorage.list1 = ...
-        // localStorage.list2 = ...
-        // in which case, you may want to keep an object that contains the names of all of the lists:
-        // localStorage.master = { 'list1', 'list2', ... }
-
         var ORZE_json = JSON.parse(localStorage.ORZE_db);
 
         console.log( 'listItems after saving to localStorage:', ORZE_json.items );
@@ -152,38 +163,30 @@ function saveListData() {
 
 // Title Creation
 
-    $newListName.on('focus', function () {
-
-        //$saveTitle.fadeIn(300);
-
-        if (!$addItem.is("visible")) {
-            $addItem.slideDown(1000);
-        }
-
-    });
-
-    $newListName.on('blur', function () {
-        $newListName.removeClass('active');
-        $newListName.addClass('blue-middle');
-        $saveTitle.fadeOut(500);
-        $('#add_item_input').focus();
-    });
-
     $newListName.on('keydown', function(e) {
+
         if (e.which == 13) {
+
+            $addItem.slideDown(1000);
             $newListName.removeClass('active');
             $newListName.addClass('blue-middle');
             $saveTitle.fadeOut(500);
+            $addItem.slideDown(1000);
             $('#add_item_input').focus();
+
+            updateListKey();
         }
     });
 
     $saveTitle.on('click', function () {
 
+        $addItem.slideDown(1000);
         $newListName.removeClass('active');
         $newListName.addClass('blue-middle');
         $saveTitle.fadeOut(500);
         $('#add_item_input').focus();
+
+        updateListKey();
 
     });
 
@@ -195,11 +198,16 @@ function saveListData() {
     $itemInput.on('keydown', function(e) {
         if (e.which == 13) {
 
-            if ($itemInput.val === "" || $itemInput.length === 0) {
-           //TODO alert('should prevent saving empty item field, but is not working');
+            var $item = $itemInput.val();
+
+            if ($.trim($item).val === "" || $.trim($item).length === 0 ) {
+
+                $itemInput.attr('placeholder', 'ITEM MUST BE NAMED');
             }
 
             else {
+
+                $itemInput.attr('placeholder', 'New Item Name');
 
                 saveListData();
 
@@ -212,10 +220,24 @@ function saveListData() {
 
     $saveItem.on('click', function () {
 
-                saveListData();
+        var $item = $itemInput.val();
 
-                $('.add').val('');
-                $('#add_item_input').focus();
+        if ($.trim($item).val === "" || $.trim($item).length === 0 ) {
+
+            $itemInput.attr('placeholder', 'ITEM MUST BE NAMED');
+
+        }
+
+        else {
+
+            $itemInput.attr('placeholder', 'New Item Name');
+
+            saveListData();
+
+            $('.add').val('');
+            $('#add_item_input').focus();
+        }
+
     });
 
 //end Adding Items

@@ -133,9 +133,6 @@ a {
   }
 }
 
-.item {
-}
-
 .category , .quantity {
   font-size: 9pt;
   padding-top: 4px;
@@ -173,13 +170,13 @@ a {
   position: fixed;
   margin-top: 60px;
   display: flex;
-  z-index: 7;
+  z-index: 4;
   align-items: center;
 }
 
 #new_list_icon, #add_item_icon {
   color: $blue-dark;
-  z-index: 6;
+  z-index:4;
   position: fixed;
   right: 16px;
   padding: 20px 5px 10px 10px;
@@ -208,7 +205,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  z-index: 9;
+  z-index: 4;
 
   & input {
     background-color: $orange-light;
@@ -249,8 +246,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 8%;
-  z-index: 8;
+  height: 12%;
+  z-index: 9;
   position: fixed;
   top: 0;
 }
@@ -259,7 +256,7 @@ header {
   color: #fff;
   position: fixed;
   top: 0;
-  padding-top: 20px;
+  padding-top: 22px;
   padding-left: 12px;
   outline: none;
   border: none;
@@ -270,9 +267,10 @@ header {
 h5 {
   background-color: $blue-middle;
   color: $blue-dark;
-  padding: 20px;
+  height: 20px;
   width: 101%;
   position: fixed;
+  padding: 20px 0 20px 20px;
   top: 20px;
 }
 
@@ -292,9 +290,8 @@ h5 {
 #handle {
   position: fixed;
   text-align: left;
-  top: -8px;
   right: 0;
-  padding-right: 12px;
+  padding: 5px 12px 5px 5px;
   color: #fff;
   background-color: $blue-dark;
   z-index: 9;
