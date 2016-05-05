@@ -243,3 +243,27 @@ function saveListData() {
     });
 
 //end Adding Items
+
+// AJAX and Nav Functionality
+
+$('#return_to_lists').on('click', function(e) {
+    e.preventDefault();
+
+    $("#list_title").hide();
+    $("#add_item").hide();
+
+
+    $("#list_content").empty();
+
+    if (localStorage.listKey)
+
+        var listKeyArray = JSON.parse(localStorage.listKey);
+
+    $.each( listKeyArray, function( i, val ) {
+
+            $("#list_of_lists").html("<li class= 'list_names'><a>" + val + "</a></li>");
+        });
+
+//TODO: add button to trigger new list creation as well as style list_of_lists
+
+});
