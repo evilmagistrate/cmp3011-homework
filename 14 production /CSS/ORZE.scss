@@ -111,16 +111,16 @@ a {
 }
 
 .passive {
-  background-color: $blue-light;
+  background-color: $blue-middle;
 }
 
-.blue-middle {
-  background-color: $blue-middle;
+.blue-light {
+  background-color: $blue-light;
 }
 
 #list_content {
   z-index: 0;
-  background-color: $blue-light;
+  background-color: $blue-middle;
   position: absolute;
   top: 140px;
   width: 101%;
@@ -265,7 +265,7 @@ header {
 }
 
 h5 {
-  background-color: $blue-middle;
+  background-color: $blue-light;
   color: $blue-dark;
   height: 20px;
   width: 101%;
@@ -274,6 +274,24 @@ h5 {
   top: 20px;
 }
 
+#list_of_lists {
+}
+
+li.list_names {
+  background-color: $blue-light;
+  list-style: none;
+  padding: 12px;
+}
+
+.edit {
+  float: right;
+  font: {
+    family: $font-sans;
+    size: 10pt;
+  }
+  padding-top: 10px;
+  padding-right: 10px;
+}
 
 //Mobile specific stylings
 

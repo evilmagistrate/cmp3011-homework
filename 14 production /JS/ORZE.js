@@ -171,7 +171,7 @@ function saveListData() {
 
             $addItem.slideDown(1000);
             $newListName.removeClass('active');
-            $newListName.addClass('blue-middle');
+            $newListName.addClass('blue-light');
             $saveTitle.fadeOut(500);
             $addItem.slideDown(1000);
             $('#add_item_input').focus();
@@ -184,7 +184,7 @@ function saveListData() {
 
         $addItem.slideDown(1000);
         $newListName.removeClass('active');
-        $newListName.addClass('blue-middle');
+        $newListName.addClass('blue-light');
         $saveTitle.fadeOut(500);
         $('#add_item_input').focus();
 
@@ -244,26 +244,32 @@ function saveListData() {
 
 //end Adding Items
 
-// AJAX and Nav Functionality
-
-$('#return_to_lists').on('click', function(e) {
-    e.preventDefault();
-
-    $("#list_title").hide();
-    $("#add_item").hide();
+/* TODO: try looking at Ajax again for swapping out body, use different method of keeping list title at top of page, generate date/time of list creation and store with list titles in key, try to address re-organization scenarios & just keep working on this until you make it work! then worry about responsive sizing */
 
 
-    $("#list_content").empty();
+// Generating A List of Lists
 
-    if (localStorage.listKey)
-
-        var listKeyArray = JSON.parse(localStorage.listKey);
-
-    $.each( listKeyArray, function( i, val ) {
-
-            $("#list_of_lists").html("<li class= 'list_names'><a>" + val + "</a></li>");
-        });
-
-//TODO: add button to trigger new list creation as well as style list_of_lists
-
-});
+//$('#return_to_lists').on('click', function(e) {
+//    e.preventDefault();
+//
+//    $("h5").empty().hide();
+//    $newListName.show();
+//    $newListName.addClass('active');
+//    $("#add_item").hide();
+//    $("#list_content").empty();
+//
+//    if (localStorage.listKey)
+//
+//        var listKeyArray = JSON.parse(localStorage.listKey);
+//
+//    $.each( listKeyArray, function( i, val ) {
+//
+//            $("#list_of_lists").html("<li class='list_names'><a href='#'>" + val + "<span class='edit'>edit</span></a></li>");
+//
+//        });
+//
+//    $('.list_names').on('click', function () {
+//
+//    });
+//
+//});
